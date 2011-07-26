@@ -1,0 +1,68 @@
+Intent:  Test javascriptmvc 3.0.5 zip project
+Goal: working cookbook tutorial based javascriptmvc-3.0.5.zip
+DateCreated: 2011.07.26
+DateLast: 2011.07.26 <or look this stuff up on github repo history>
+
+Resources:
+WEB: http://js.javascriptmvc305/
+FILE: C:\Users\ChrisT\workspace\javascriptmvc305
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 1 - Work Setup
+<<<<<<<<<<<<<<<<<
+--Extract javascriptmvc-3.0.5.zip to C:\Users\ChrisT\workspace\javascriptmvc305
+--Configure Apache virtual host in httpd.conf 
+<VirtualHost *:80>
+   DocumentRoot "C:\Users\ChrisT\workspace\javascriptmvc305"
+   ServerName js.javascriptmvc305
+   <Directory "C:\Users\ChrisT\workspace\javascriptmvc305">
+       Options Indexes MultiViews FollowSymLinks
+       AllowOverride All
+       Order allow,deny
+       Allow from all
+   </Directory>
+</VirtualHost>
+--Set in C:\Windows\System32\drivers\etc\hosts
+127.0.0.1 js.javascriptmvc305 # javascriptmvc305 zip test
+--Restart Apache
+--Start this README file
+--do git happiness
+C:\>cd C:\Users\ChrisT\workspace\javascriptmvc305
+C:\Users\ChrisT\workspace\javascriptmvc305>git init
+C:\Users\ChrisT\workspace\javascriptmvc305>copy ..\..\.gitignore .
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "first commit javascriptmvc305"
+
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 2 - Source Setup
+<<<<<<<<<<<<<<<<<
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 6 - B: 11 Compress for Production 
+<<<<<<<<<<<<<<<<<
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 6 - TEST B: 12
+<<<<<<<<<<<<<<<<<
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 7 - B: 13 Create Documents 
+<<<<<<<<<<<<<<<<<
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 7 - TEST B: 14
+<<<<<<<<<<<<<<<<<
+
+	
+	
+>>>>>BUG:4 BEGIN
+<<<<<BUG:4 END
+>>>>>BUG:5 BEGIN
+<<<<<BUG:5 END
+>>>>>BUG:6 BEGIN
+<<<<<BUG:6 END
+>>>>>BUG:7 BEGIN
+<<<<<BUG:7 END
+>>>>>BUG:8 BEGIN
+<<<<<BUG:8 END
+>>>>>BUG:9 BEGIN
+<<<<<BUG:9 END
