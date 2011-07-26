@@ -270,6 +270,21 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Docs for cookbook app"
 --Browse: http://js.javascriptmvc305/cookbook/docs.html
 SUCCESS>>See the docs!
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 4 - Share
+<<<<<<<<<<<<<<<<<
+--Create github repo https://github.com/repositories/new
+--Add it as a remote, tag and push
+C:\Users\ChrisT\workspace\javascriptmvc305>git remote add origin git@github.com:christrees/javascriptmvc305.git
+C:\Users\ChrisT\workspace\javascriptmvc305>git tag -a Step4 -m "Step4 Share Working cookbook"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin master
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 4 - TEST
+<<<<<<<<<<<<<<<<<
+--Browse https://github.com/christrees/javascriptmvc305
+SUCCESS>>> See the Repo
+
 ???????????????????????????????????????
 >>>>>UNUSED / NEXT BUG ID BIN<<<<<
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
