@@ -7,6 +7,8 @@ Resources:
 WEB: http://js.javascriptmvc305/
 FILE: C:\Users\ChrisT\workspace\javascriptmvc305
 
+COOKBOOKSTEPS: https://github.com/jupiterjs/javascriptmvc/blob/master/README <February 04, 2011>
+
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 1 - Work Setup
 <<<<<<<<<<<<<<<<<
@@ -32,28 +34,211 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git init
 C:\Users\ChrisT\workspace\javascriptmvc305>copy ..\..\.gitignore .
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "first commit javascriptmvc305"
-
-
 <<<<<<<<<<<<<<<<<
->>>>>STEP 2 - Source Setup
+>>>>>STEP 1 - TEST
 <<<<<<<<<<<<<<<<<
-
-<<<<<<<<<<<<<<<<<
->>>>>STEP 6 - B: 11 Compress for Production 
-<<<<<<<<<<<<<<<<<
-<<<<<<<<<<<<<<<<<
->>>>>STEP 6 - TEST B: 12
-<<<<<<<<<<<<<<<<<
+--Browse: http://js.javascriptmvc305/README
+SUCCESS>>SEE THIS FILE
 
 <<<<<<<<<<<<<<<<<
->>>>>STEP 7 - B: 13 Create Documents 
+>>>>>STEP 2 - Code CookBook
+<<<<<<<<<<<<<<<<<
+>>>>>BUG:1 BEGIN
+>>Document https://github.com/jupiterjs/javascriptmvc/blob/master/README <February 04, 2011>
+>>Document:
+>>./js steal/generate/app cookbook
+>>./js steal/generate/scaffold Cookbook.Models.Recipe
+>>I used
+>>js jquery\generate\app cookbook
+>>js jquery\generate\scaffold Cookbook.Models.Recipe
+>>As I found out that later version of steal do not scaffold
+>>I also found out you should NOT update right now as things are in flux.
+>>If you do update... probably best to fork on git and start at a revision have been through and re-work the tutorial
+<<<<<BUG:1 END
+C:\Users\ChrisT\workspace\javascriptmvc305>js jquery\generate\app cookbook
+      cookbook/cookbook.css
+      cookbook/cookbook.html
+      cookbook/cookbook.js
+      cookbook/controllers
+      cookbook/docs
+      cookbook/fixtures
+      cookbook/funcunit.html
+      cookbook/models
+      cookbook/qunit.html
+      cookbook/resources
+      cookbook/scripts
+      cookbook/scripts/build.html
+      cookbook/scripts/build.js
+      cookbook/scripts/clean.js
+      cookbook/scripts/docs.js
+      cookbook/test
+      cookbook/test/funcunit
+      cookbook/test/funcunit/cookbook_test.js
+      cookbook/test/funcunit/funcunit.js
+      cookbook/test/qunit
+      cookbook/test/qunit/cookbook_test.js
+      cookbook/test/qunit/qunit.js
+      cookbook/views
+
+C:\Users\ChrisT\workspace\javascriptmvc305>js jquery\generate\scaffold Cookbook.Models.Recipe
+      cookbook/controllers
+      cookbook/controllers/recipe_controller.js
+      cookbook/fixtures
+      cookbook/fixtures/recipes.json.get
+      cookbook/models
+      cookbook/models/recipe.js
+      cookbook/test
+      cookbook/test/funcunit
+      cookbook/test/funcunit/recipe_controller_test.js
+      cookbook/test/qunit
+      cookbook/test/qunit/recipe_test.js
+      cookbook/views
+      cookbook/views/recipe
+      cookbook/views/recipe/edit.ejs
+      cookbook/views/recipe/init.ejs
+      cookbook/views/recipe/list.ejs
+      cookbook/views/recipe/show.ejs
+
+C:\Users\ChrisT\workspace\javascriptmvc305>
+--EDIT  cookbook/cookbook.js
+			.models('recipe')
+			.controllers('recipe')
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "generate cookbook app"
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 2 - TEST
+<<<<<<<<<<<<<<<<<
+>>>>>BUG:2 BEGIN
+>>Doc has Open callcenter.html in a browser
+<<<<<BUG:2 END
+--Browse: http://js.javascriptmvc305/cookbook/cookbook.html
+SUCCESS>>See cookbook app... play, click
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 3 - Test cookbook
+<<<<<<<<<<<<<<<<<
+--Edit test/funcunit/funcunit.js
+steal
+ .plugins("funcunit")
+ .then("cookbook_test")
+ .then("recipe_controller_test");
+--Edit  test/qunit/qunit.js
+steal
+  .plugins("funcunit/qunit", "cookbook")
+  .then("cookbook_test")
+  .then("recipe_controller_test");
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "testing for cookbook app"
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 3 - TEST
+<<<<<<<<<<<<<<<<<
+--Browse http://js.javascriptmvc305/cookbook/funcunit.html
+SUCCESS>>Get window which lauches another window and runs test which pass and desplay test status.
+--Browse http://js.javascriptmvc305/cookbook/qunit.html
+SUCCESS>>Get window which runs test which pass and desplay test status.
+C:\Users\ChrisT\workspace\javascriptmvc305>funcunit\envjs cookbook\qunit.html
+MODULE cookbook
+
+--cookbook testing works--
+  PASS an assert is run
+  done - fail 0, pass 1
+
+
+ALL DONE - fail 0, pass 1
+C:\Users\ChrisT\workspace\javascriptmvc305>
+SUCCESS>>> See the test passed
+
+C:\Users\ChrisT\workspace\javascriptmvc305>funcunit\envjs cookbook\funcunit.html
+
+STARTING *firefox
+MODULE cookbook test
+
+--Copy Test--
+steal.js INFO: Opening //cookbook/cookbook.html
+steal.js INFO: Getting text on h1
+  PASS welcome text, expected: "Welcome to JavaScriptMVC 3.0!" result: "Welcome to JavaScriptMVC 3.0!"
+  done - fail 0, pass 1
+
+MODULE recipe
+
+--recipes present--
+steal.js INFO: Opening //cookbook/cookbook.html
+steal.js INFO: Getting size on .recipe
+  PASS There is at least one recipe
+  done - fail 0, pass 1
+
+--create recipes--
+steal.js INFO: Opening //cookbook/cookbook.html
+steal.js INFO: Typing Ice on [name=name]
+steal.js INFO: Typing Cold Water on [name=description]
+steal.js INFO: Clicking [type=submit]
+steal.js INFO: Waiting 0
+steal.js INFO: Getting text on .recipe:nth-child(2) td:first
+  PASS Typed Ice
+  done - fail 0, pass 1
+
+--edit recipes--
+steal.js INFO: Opening //cookbook/cookbook.html
+steal.js INFO: Typing Ice on [name=name]
+steal.js INFO: Typing Cold Water on [name=description]
+steal.js INFO: Clicking [type=submit]
+steal.js INFO: Clicking .recipe:nth-child(2) a.edit
+steal.js INFO: Typing  Water on .recipe input[name=name]
+steal.js INFO: TyTap Water on .recipe input[name=description]
+steal.js INFO: Clicking .update
+steal.js INFO: Getting text on .recipe:nth-child(2) td:first
+  PASS Typed Ice Water
+steal.js INFO: Getting text on .recipe:nth-child(2) td:nth-child(2)
+  PASS Typed Cold Tap Water
+  done - fail 0, pass 2
+
+--destroy--
+steal.js INFO: Opening //cookbook/cookbook.html
+steal.js INFO: Typing Ice on [name=name]
+steal.js INFO: Typing Cold Water on [name=description]
+steal.js INFO: Clicking [type=submit]
+steal.js INFO: Clicking .recipe:nth-child(2) .destroy
+  PASS
+  done - fail 0, pass 1
+
+
+ALL DONE 0, 6
+
+STARTING *iexplore
+MODULE cookbook test
+
+--Copy Test--
+steal.js INFO: Opening //cookbook/cookbook.html
+steal.js INFO: Getting text on h1
+  PASS welcome text, expected: "Welcome to JavaScriptMVC 3.0!" result: "Welcome to JavaScriptMVC 3.0!"
+  done - fail 0, pass 1
+
+MODULE recipe
+
+--recipes present--
+steal.js INFO: Opening //cookbook/cookbook.html
+  FAIL waiting for size on .recipe
+steal.js INFO: Getting size on .recipe
+  FAIL There is at least one recipe
+  done - fail 2, pass 2
+
+--create recipes--
+steal.js INFO: Opening //cookbook/cookbook.html
+Terminate batch job (Y/N)? y
+
+FAILURE>>>but the failure is due to IE blocking on the browser... going to forget this for now. 
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 4 - Document cookbook
 <<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<
->>>>>STEP 7 - TEST B: 14
+>>>>>STEP 4 - TEST
 <<<<<<<<<<<<<<<<<
 
 	
 	
+>>>>>BUG:3 BEGIN
+<<<<<BUG:3 END
 >>>>>BUG:4 BEGIN
 <<<<<BUG:4 END
 >>>>>BUG:5 BEGIN
