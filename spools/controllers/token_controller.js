@@ -26,7 +26,7 @@ $.Controller.extend('Spools.Controllers.Token',
  * @param {Array} tokens An array of Spools.Models.Token objects.
  */
  list: function( tokens ){
-	$('#token').html(this.view('init', {tokens:tokens} ));
+	$('#token').html(this.view('grid', {tokens:tokens} ));
  },
  /**
  * Responds to the create form being submitted by creating a new Spools.Models.Token.

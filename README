@@ -380,6 +380,58 @@ ALL DONE - fail 0, pass 1
 ???? IT PASSED but we have some file not found... ????
 
 <<<<<<<<<<<<<<<<<
+>>>>>STEP 6 - Start to create the spools grid
+<<<<<<<<<<<<<<<<<
+--First lets change the token model
+--{"state": "created", "idCreator": "Christ", "idOwner": "game", "idGameBrd": "1", "idGamePos": "1",  "id": 1}
+--Put this and 24 of it's friends in 
+C:\Users\ChrisT\workspace\javascriptmvc305\spools\fixtures\tokens.json.get
+--Now lets make a token view the grid we expect...
+--We want a token icon in a grid... right now we use the idOwner text as the icon.
+--EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\icon.ejs
+<%for(var attribute in this.Class.attributes){%>
+    <%if(attribute == 'id') continue;%>
+    <%if(attribute == 'idOwner') {%>
+        <span class='<%= attribute%>'>
+            <%if (this[attribute] == 'game') {%>
+                <a href='javascript://' class='buy'>PickMe</a>
+            <%}else{this[attribute]}%>
+        </span>
+    <%}%>
+<%}%>
+--EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\grid.ejs
+<h2>Game Grid</h2>
+<table cellspacing='0px'>
+<tr>
+<%var a = 0; var r = 1; for(var i = 0; i < tokens.length ; i++){ a++; %>
+    <%if( a == 6 ) { a = 1; r++; %> </tr><tr> <%}%>
+	<td <%= tokens[i]%>>
+		<%= $.View('//spools/views/token/icon',tokens[i])%>
+	</td>
+<%}%>
+</tr></table>
+--We want the default list view to be the icon grid
+--EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\controllers\token_controller.js
+ list: function( tokens ){
+	$('#token').html(this.view('grid', {tokens:tokens} ));
+ },
+ --Try it... http://js.javascriptmvc305/spools/spools.html
+ --Fix the main page
+ --EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\spools.html
+ --Looks ok git this
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 6 - TEST
+<<<<<<<<<<<<<<<<<
+
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 7 - <step subject>
+<<<<<<<<<<<<<<<<<
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 7 - TEST
+<<<<<<<<<<<<<<<<<
+?????????????????????????????????
+<<<<<<<<<<<<<<<<<
 >>>>>STEP x - <step subject>
 <<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<

@@ -1,0 +1,10 @@
+<%for(var attribute in this.Class.attributes){%>
+    <%if(attribute == 'id') continue;%>
+    <%if(attribute == 'idOwner') {%>
+        <span class='<%= attribute%>'>
+            <%if (this[attribute] == 'game') {%>
+                <a href='javascript://' class='buy'>PickMe</a>
+            <%}else{this[attribute]}%>
+        </span>
+    <%}%>
+<%}%>
