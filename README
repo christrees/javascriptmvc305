@@ -286,6 +286,105 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin --tags
 --Browse https://github.com/christrees/javascriptmvc305
 SUCCESS>>> See the Repo
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 5 - Branch to Spools app and generate
+<<<<<<<<<<<<<<<<<
+C:\Users\ChrisT\workspace\javascriptmvc305>git branch spools
+C:\Users\ChrisT\workspace\javascriptmvc305>git checkout spools
+Switched to branch 'spools'
+C:\Users\ChrisT\workspace\javascriptmvc305>git branch
+  master
+* spools
+C:\Users\ChrisT\workspace\javascriptmvc305>js jquery\generate\app spools
+      spools/spools.css
+      spools/spools.html
+      spools/spools.js
+      spools/controllers
+      spools/docs
+      spools/fixtures
+      spools/funcunit.html
+      spools/models
+      spools/qunit.html
+      spools/resources
+      spools/scripts
+      spools/scripts/build.html
+      spools/scripts/build.js
+      spools/scripts/clean.js
+      spools/scripts/docs.js
+      spools/test
+      spools/test/funcunit
+      spools/test/funcunit/spools_test.js
+      spools/test/funcunit/funcunit.js
+      spools/test/qunit
+      spools/test/qunit/spools_test.js
+      spools/test/qunit/qunit.js
+      spools/views
+
+C:\Users\ChrisT\workspace\javascriptmvc305>js jquery\generate\scaffold Spools.Models.Token
+      spools/controllers
+      spools/controllers/token_controller.js
+      spools/fixtures
+      spools/fixtures/tokens.json.get
+      spools/models
+      spools/models/token.js
+      spools/test
+      spools/test/funcunit
+      spools/test/funcunit/token_controller_test.js
+      spools/test/qunit
+      spools/test/qunit/token_test.js
+      spools/views
+      spools/views/token
+      spools/views/token/edit.ejs
+      spools/views/token/init.ejs
+      spools/views/token/list.ejs
+      spools/views/token/show.ejs
+
+C:\Users\ChrisT\workspace\javascriptmvc305>
+--EDIT  spools/spools.js
+			.models('token')
+			.controllers('token')
+--Edit test/funcunit/funcunit.js
+steal
+ .plugins("funcunit")
+ .then("spools_test")
+ .then("token_controller_test");
+--Edit  test/qunit/qunit.js
+steal
+  .plugins("funcunit/qunit", "spools")
+  .then("spools_test")
+  .then("token_controller_test");
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Create Spools app on Spools branch"
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 5 - TEST
+<<<<<<<<<<<<<<<<<
+--Browse http://js.javascriptmvc305/spools/spools.html
+SUCCESS>> got exepected page
+--Browse http://js.javascriptmvc305/spools/funcunit.html
+SUCCESS>> got test that ran
+--Browse http://js.javascriptmvc305/spools/qunit.html
+SUCCESS>> got test that ran
+--Run
+C:\Users\ChrisT\workspace\javascriptmvc305>funcunit\envjs spools\qunit.html
+failed to open file  file:/C:/Users/ChrisT/workspace/javascriptmvc305/spools/test/qunit/token_controller_test.js   JavaException:
+java.io.FileNotFoundException: C:\Users\ChrisT\workspace\javascriptmvc305\spools\test\qunit\token_controller_test.js (The system c
+annot find the file specified)
+MODULE spools
+
+--spools testing works--
+  PASS an assert is run
+  done - fail 0, pass 1
+
+
+ALL DONE - fail 0, pass 1
+???? IT PASSED but we have some file not found... ????
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP x - <step subject>
+<<<<<<<<<<<<<<<<<
+<<<<<<<<<<<<<<<<<
+>>>>>STEP x - TEST
+<<<<<<<<<<<<<<<<<
 ???????????????????????????????????????
 >>>>>UNUSED / NEXT BUG ID BIN<<<<<
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
