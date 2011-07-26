@@ -278,6 +278,7 @@ SUCCESS>>See the docs!
 C:\Users\ChrisT\workspace\javascriptmvc305>git remote add origin git@github.com:christrees/javascriptmvc305.git
 C:\Users\ChrisT\workspace\javascriptmvc305>git tag -a Step4 -m "Step4 Share Working cookbook"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin master
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin --tags
 
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 4 - TEST
