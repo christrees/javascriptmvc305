@@ -231,12 +231,48 @@ FAILURE>>>but the failure is due to IE blocking on the browser... going to forge
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 4 - Document cookbook
 <<<<<<<<<<<<<<<<<
+--Generate cookbook docs
+C:\Users\ChrisT\workspace\javascriptmvc305>steal\js cookbook\scripts\docs.js
+PROCESSING SCRIPTS
+
+  ../steal/steal.js?cookbook,development
+  ../steal/dev/dev.js
+  ../cookbook/cookbook.js
+  ../jquery/controller/controller.js
+  ../jquery/class/class.js
+  ../jquery/jquery.js
+  ../jquery/lang/lang.js
+  ../jquery/event/destroyed/destroyed.js
+  ../jquery/event/event.js
+  ../jquery/controller/subscribe/subscribe.js
+  ../jquery/lang/openajax/openajax.js
+  ../jquery/view/ejs/ejs.js
+  ../jquery/view/view.js
+  ../jquery/lang/rsplit/rsplit.js
+  ../jquery/controller/view/view.js
+  ../jquery/model/model.js
+  ../jquery/dom/fixture/fixture.js
+  ../jquery/dom/dom.js
+  ../jquery/dom/form_params/form_params.js
+  ../cookbook/models/recipe.js
+  ../cookbook/controllers/recipe_controller.js
+
+GENERATING DOCS -> cookbook/docs
+
+Using default page layout.  Overwrite by creating: cookbook/summary.ejs
+
+C:\Users\ChrisT\workspace\javascriptmvc305>
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Docs for cookbook app"
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 4 - TEST
 <<<<<<<<<<<<<<<<<
+--Browse: http://js.javascriptmvc305/cookbook/docs.html
+SUCCESS>>See the docs!
 
-	
-	
+???????????????????????????????????????
+>>>>>UNUSED / NEXT BUG ID BIN<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>BUG:3 BEGIN
 <<<<<BUG:3 END
 >>>>>BUG:4 BEGIN
