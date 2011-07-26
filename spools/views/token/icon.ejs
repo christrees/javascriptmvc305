@@ -3,8 +3,9 @@
     <%if(attribute == 'idOwner') {%>
         <span class='<%= attribute%>'>
             <%if (this[attribute] == 'game') {%>
-                <a href='javascript://' class='buy'>PickMe</a>
-            <%}else{this[attribute]}%>
+                <input type="hidden" value="CAT" name="idOwner"/>
+                <a href='javascript://' class='pick'>PickMe</a>
+            <%}else{%> <%= this[attribute]%> <%}%>
         </span>
     <%}%>
 <%}%>

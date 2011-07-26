@@ -419,24 +419,100 @@ C:\Users\ChrisT\workspace\javascriptmvc305\spools\fixtures\tokens.json.get
  --Fix the main page
  --EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\spools.html
  --Looks ok git this
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "grid and icon view Spools app on Spools branch"
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 6 - TEST
 <<<<<<<<<<<<<<<<<
-
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>
+FAILURE>>
+????>>
 
 <<<<<<<<<<<<<<<<<
->>>>>STEP 7 - <step subject>
+>>>>>STEP 7 - Click icon to pick
 <<<<<<<<<<<<<<<<<
+--We want the user to click on PickMe icon to pick that token space and have it show the owner who picked it.
+--This is a controller action.  Lets add a pick action to the token_controller
+--EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\controllers\token_controller.js
+'token.created subscribe': function( called, token ){
+	$("#token tbody").append( this.view("list", {tokens:[token]}) );
+	$("#token form input[type!=submit]").val(""); //clear old vals
+},
+ /**
+ * Creates and places the pick interface.
+ * @param {jQuery} el The token's edit link element.
+ */
+'.pick click': function( el ){
+	var token = el.closest('.token').model();
+	token.elements().html(this.view('edit', token));
+},
+--OH... I guess i was thinking buy not pick when I created the icon... so change that
+--EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\icon.ejs
+                <a href='javascript://' class='pick'>PickMe</a>
+--HUMMM... that didn't work as expected... I expected to get the edit view when I clicked...
+--Turn on Firebug.. nothing obvious
+--Now... his works on the normal list... go figure out what the normal list is doing...
+--HUMM.. I used edit... I probably want to model this more like an update
+--OK... I think I got this sort of worked out in my head... see if this works
+--We want to pick up the coin when we click the PickMe and show that is is ours.
+--SO... when we display the icon, we put an input field that will change the ownership to US <the current user>
+--EDIT - C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\icon.ejs
+<%for(var attribute in this.Class.attributes){%>
+    <%if(attribute == 'id') continue;%>
+    <%if(attribute == 'idOwner') {%>
+        <span class='<%= attribute%>'>
+            <%if (this[attribute] == 'game') {%>
+                <input type="hidden" value="CAT" name="idOwner"/>
+                <a href='javascript://' class='pick'>PickMe</a>
+            <%}else{%> <%= this[attribute]%> <%}%>
+        </span>
+    <%}%>
+<%}%>
+--NOW... when this is clicked, it is picked up by the .pick click that we setup in the controller
+--.pick click grabs the token class and post the token form to update that does a AJAX post.
+--the token.updated subscribed fucntion detects the token change it calls the show function (hope this is trigger by success of ajax ??)
+--the show function redisplayes the token <which I changed to our icon view.
+================OK====================C:\Users\ChrisT\workspace\javascriptmvc305>git status
+# On branch spools
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README
+#       modified:   spools/controllers/token_controller.js
+#       modified:   spools/views/token/icon.ejs
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+--Lets commit this
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Click icon to pick token_controller"
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 7 - TEST
 <<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>
+FAILURE>>
+????>>
+
+
+======================================================================================
+------- copy buffer --------------
 ?????????????????????????????????
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - <step subject>
 <<<<<<<<<<<<<<<<<
+--WHAT the heck to do next... how about blahblah
+--Lets commit this
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blahblah on dodo"
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST
 <<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>
+?FAILURE>>
+??WHAT?>>
 ???????????????????????????????????????
 >>>>>UNUSED / NEXT BUG ID BIN<<<<<
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -47,6 +47,14 @@ $.Controller.extend('Spools.Controllers.Token',
 	$("#token form input[type!=submit]").val(""); //clear old vals
 },
  /**
+ * Creates and places the pick interface.
+ * @param {jQuery} el The token's edit link element.
+ */
+'.pick click': function( el ){
+	var $token = el.closest('.token');
+	$token.model().update($token.formParams());
+},
+ /**
  * Creates and places the edit interface.
  * @param {jQuery} el The token's edit link element.
  */
@@ -79,7 +87,7 @@ $.Controller.extend('Spools.Controllers.Token',
  * Shows a token's information.
  */
 show: function( token ){
-	token.elements().html(this.view('show',token));
+	token.elements().html(this.view('icon',token));
 },
  /**
  *	 Handle's clicking on a token's destroy link.
