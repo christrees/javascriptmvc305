@@ -491,10 +491,23 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Click icon to pick tok
 >>>>>STEP 7 - TEST
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html
-SUCCESS>>
-FAILURE>>
-????>>
+SUCCESS>> Seemed to work... click PickMe and it changes to CAT
+?FAILURE>> woops... had a typo in my fixture... idGamePos 20 had id=10 
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 8 - Set a user 
+<<<<<<<<<<<<<<<<<
+--WHAT the heck to do next... how about blahblah
+--Lets commit this
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blahblah on dodo"
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 8 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>
+?FAILURE>>
+??WHAT?>>
 
 ======================================================================================
 ------- copy buffer --------------
