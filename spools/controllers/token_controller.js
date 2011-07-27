@@ -18,15 +18,22 @@ $.Controller.extend('Spools.Controllers.Token',
  load: function(){
 	if(!$("#token").length){
 	 $(document.body).append($('<div/>').attr('id','token'));
-		 Spools.Models.Token.findAll({}, this.callback('list'));
+		 Spools.Models.Token.findAll({}, this.callback('grid'));
  	}
  },
  /**
  * Displays a list of tokens and the submit form.
  * @param {Array} tokens An array of Spools.Models.Token objects.
  */
- list: function( tokens ){
+ grid: function( tokens ){
 	$('#token').html(this.view('grid', {tokens:tokens} ));
+ },
+ /**
+ * Displays a list of tokens and the submit form.
+ * @param {Array} tokens An array of Spools.Models.Token objects.
+ */
+ list: function( tokens ){
+	$('#token').html(this.view('list', {tokens:tokens} ));
  },
  /**
  * Responds to the create form being submitted by creating a new Spools.Models.Token.

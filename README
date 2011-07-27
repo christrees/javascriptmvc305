@@ -492,15 +492,149 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Click icon to pick tok
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html
 SUCCESS>> Seemed to work... click PickMe and it changes to CAT
-?FAILURE>> woops... had a typo in my fixture... idGamePos 20 had id=10 
+?FAILURE>> woops... had a typo in my fixture... idGamePos 20 had id=10 C:\Users\ChrisT\workspace\javascriptmvc305>git status
+warning: LF will be replaced by CRLF in spools/fixtures/tokens.json.get.
+The file will have its original line endings in your working directory.
+# On branch spools
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   README
+#       modified:   spools/fixtures/tokens.json.get
+#
+
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "fix fixture type"
 
 <<<<<<<<<<<<<<<<<
->>>>>STEP 8 - Set a user 
+>>>>>STEP 8 - Set a user ... somehow..
 <<<<<<<<<<<<<<<<<
---WHAT the heck to do next... how about blahblah
+--OK... Users... the idea is to have a list of users... wait I don't need to know the list of the users
+--I just need to know who I am... cookie
+--http://javascriptmvc.com/docs.html#&who=jQuery.Model.List.Cookie
+--But make sure this will be ok with the new steal
+--http://forum.javascriptmvc.com/recent#topic/32525000000590273
+--NOPE - No more steal.plugins
+--Add cookie to steal
+--EDIT  spools/spools.js
+	'jquery/model',					// Ajax wrappers
+        'jquery/model/list/cookie',
+	'jquery/dom/fixture',			// simulated Ajax requests
+--Add a user scaffold
+C:\Users\ChrisT\workspace\javascriptmvc305>js jquery\generate\scaffold Spools.Models.User
+      spools/controllers
+      spools/controllers/user_controller.js
+      spools/fixtures
+      spools/fixtures/users.json.get
+      spools/models
+      spools/models/user.js
+      spools/test
+      spools/test/funcunit
+      spools/test/funcunit/user_controller_test.js
+      spools/test/qunit
+      spools/test/qunit/user_test.js
+      spools/views
+      spools/views/user
+      spools/views/user/edit.ejs
+      spools/views/user/init.ejs
+      spools/views/user/list.ejs
+      spools/views/user/show.ejs
+
+C:\Users\ChrisT\workspace\javascriptmvc305>
+--EDIT spools\spools.js
+	.models('token','user')						// loads files in models folder
+	.controllers('token','user')					// loads files in controllers folder
+--CRAP... started to have lots of issues
+--OK... lost for serveral hours through ratholes attempting to learn structures and patterns
+--See if I can summarize and catch up my memory <this readme> up so I don't get lost next time.
+--What I wanted to do was setup the spools grid with clickable tokens that when clicked assigns to the user.
+--This is where I ratholed pretty hard... because I started to mix and match views and events.
+--If I have a GRID... I have -one user- a unique USER VIEW.  They don't need to know the whole world
+--and if I'm down to the token level... it only needs to know who owns it and who may click on it
+--SO... I need to refactor the token grid and let the other process hand me the data I need which is tokens
+--tokens is the return list of Spools.Models.Token.findAll({}, this.callback('grid'));
+load: function(){
+	if(!$("#token").length){
+	 $(document.body).append($('<div/>').attr('id','token'));
+		 Spools.Models.Token.findAll({}, this.callback('grid'));
+ 	}
+ },
+ /**
+ * Displays a list of tokens and the submit form.
+ * @param {Array} tokens An array of Spools.Models.Token objects.
+ */
+ grid: function( tokens ){
+	$('#token').html(this.view('grid', {tokens:tokens} ));
+ },
+--SO what I want is the grid view to have tokens that have idPlayer which is who can click <the user behind the UI>
+--I then put an update call that when the user clicks it goes updates that value.
+--TO DO THIS we just add idPlayer to the tokens.json.get and give it a value of the test player CAT
+--EDIT C:\Users\ChrisT\workspace\javascriptmvc305\spools\fixtures\tokens.json.get
+{"state": "play", "idCreator": "Christ", "idOwner": "game", "idPlayer": "CAT", "idGameBrd": "1", "idGamePos": "1",  "id": 1},
+...
+--Then mod the token view to display the right stuff
+--EDIT C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\icon.ejs
+<%for(var attribute in this.Class.attributes){%>
+    <%if(attribute == 'id') continue;%>
+    <%if(attribute == 'idPlayer') {%>
+         <input type="hidden" value="<%= idPlayer %>" name="idOwner"/>
+    <%}%>
+    <%if(attribute == 'idOwner') {%>
+       <%if (this[attribute] == 'game') {%>
+          <a href='javascript://' class='pick'>xx<%= this.state %>xx</a>
+       <%}else{%> <%= this[attribute]%> <%}%>
+    <%}%>
+<%}%>
+--WOW... basically back to where I was.  THE ONLY real change was to add an attribute to token
+--I think I'll go clean up some of the mess I made...
+C:\Users\ChrisT\workspace\javascriptmvc305>git status
+# On branch spools
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README
+#       modified:   spools/controllers/token_controller.js
+#       modified:   spools/fixtures/tokens.json.get
+#       modified:   spools/spools.js
+#       modified:   spools/views/token/icon.ejs
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       spools/controllers/user_controller.js
+#       spools/fixtures/users.json.get
+#       spools/models/user.js
+#       spools/test/funcunit/user_controller_test.js
+#       spools/test/qunit/user_test.js
+#       spools/views/user/
+no changes added to commit (use "git add" and/or "git commit -a")
+--CLEANUP - Lets nuke the user stuff
+C:\Users\ChrisT\workspace\javascriptmvc305>git status
+# On branch spools
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README
+#       modified:   spools/controllers/token_controller.js
+#       modified:   spools/fixtures/tokens.json.get
+#       modified:   spools/spools.js
+#       modified:   spools/views/token/icon.ejs
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+--CLEANUP - user nuked...
+--Now lets clean up the call in spools.js take out user and comment out the cookie thing
+--I think that's it
+--In review... 
+--the idPlayer is the id of the player who can click on this token
+--the idOwner is the id of the owner of the token
+--If the owner is the game, the user can click on the displayed link to become the owner
+--that event triggers a data update...
+--REMEMBER: The view should be presented with the data that is needed by the controller.
 --Lets commit this
+--SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
-C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blahblah on dodo"
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Add idPlayer to token model"
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 8 - TEST
 <<<<<<<<<<<<<<<<<

@@ -1,11 +1,11 @@
 <%for(var attribute in this.Class.attributes){%>
     <%if(attribute == 'id') continue;%>
+    <%if(attribute == 'idPlayer') {%>
+         <input type="hidden" value="<%= idPlayer %>" name="idOwner"/>
+    <%}%>
     <%if(attribute == 'idOwner') {%>
-        <span class='<%= attribute%>'>
-            <%if (this[attribute] == 'game') {%>
-                <input type="hidden" value="CAT" name="idOwner"/>
-                <a href='javascript://' class='pick'>PickMe</a>
-            <%}else{%> <%= this[attribute]%> <%}%>
-        </span>
+       <%if (this[attribute] == 'game') {%>
+          <a href='javascript://' class='pick'>xx<%= this.state %>xx</a>
+       <%}else{%> <%= this[attribute]%> <%}%>
     <%}%>
 <%}%>
