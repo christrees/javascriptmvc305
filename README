@@ -766,7 +766,7 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 10 Multiple Players on one game"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
->>>>>STEP x - TEST
+>>>>>STEP 10 - TEST
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html
 CLICK a few tokens
@@ -774,6 +774,37 @@ Browse - http://js.javascriptmvc305/spools/nukecookieandsession.php
 See the 'other' user and click a few more tokens as your 'new' user
 rinse and repeat
 SUCCESS>>Seems to work OK... I'm sure I'll have 'issues'
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 11 - Share on javascriptmvc305.xplanb.net
+<<<<<<<<<<<<<<<<<
+--WELLLLLLL... I got to share this with the crew so I can get some feedback
+--SO.... Lets push it to that public server and see what issues we have
+--We will probably have Apache config issues as I'm doing some funnies with the apache config
+--Create the subdomain javascriptmvc305.xplanb.net
+--ssh to your box cd to where you appache should point
+--git clone git@github.com:christrees/javascriptmvc305.git
+--Humm... that almost worked... we need to set the .htaccess
+<FilesMatch "token" >
+    SetHandler application/x-httpd-php
+</FilesMatch>
+--CRAP... f'n host... this does not fly..
+--DARN... do it the 'other way...' hack up the request to go to .php and change the file names to match
+--COPY: token -> token.php and tokens -> tokens.php
+--EDIT: spools/models/token.js (point the old to the new)
+
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Mod for javascriptmvc305.xplanb.net due to no FileMatch Apache control"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 11 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>
+?FAILURE>>
+??WHAT?>>
 
 ======================================================================================
 ------- copy buffer --------------
