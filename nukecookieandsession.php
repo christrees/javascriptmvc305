@@ -51,4 +51,5 @@ if (isset($_COOKIE['cookie'])) {
         return setcookie($name, NULL, -1);
     }
  */
+echo '<a href="/spools/spools.html">Re-Spool Me<a>';
 ?>

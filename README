@@ -770,7 +770,7 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html
 CLICK a few tokens
-Browse - http://js.javascriptmvc305/spools/nukecookieandsession.php
+Browse - http://js.javascriptmvc305/nukecookieandsession.php
 See the 'other' user and click a few more tokens as your 'new' user
 rinse and repeat
 SUCCESS>>Seems to work OK... I'm sure I'll have 'issues'
@@ -792,12 +792,49 @@ SUCCESS>>Seems to work OK... I'm sure I'll have 'issues'
 --DARN... do it the 'other way...' hack up the request to go to .php and change the file names to match
 --COPY: token -> token.php and tokens -> tokens.php
 --EDIT: spools/models/token.js (point the old to the new)
-
 --Lets commit this
 --SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Mod for javascriptmvc305.xplanb.net due to no FileMatch Apache control"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+--NOW on host side
+--git fetch
+--git checkout remotes/origin/spools
+--HEY... that works
+--Lets add a board rebuild to newboard.php
+--EDIT: newboard.php
+--Just use the init and board gen to write over board 1
+--This seems to work...
+--Lets put some info in the spools.html
+--EDIT: spools/spools.html
+--And link nukecookieandsession.php and newboard.php back to spools
+--WOW.. this will make testing scripts easier also...
+-Lets commit this
+C:\Users\ChrisT\workspace\javascriptmvc305>git status
+# On branch spools
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README
+#       modified:   gamebrdbank.spools
+#       modified:   nukecookieandsession.php
+#       modified:   spools/spools.html
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       newboard.php
+no changes added to commit (use "git add" and/or "git commit -a")
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Mod to make demo easier"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+--NOW on host side
+--git fetch
+--git checkout remotes/origin/spools
+--
+
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 11 - TEST
 <<<<<<<<<<<<<<<<<
