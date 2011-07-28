@@ -635,13 +635,118 @@ no changes added to commit (use "git add" and/or "git commit -a")
 --SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Add idPlayer to token model"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 8 - TEST
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html
-SUCCESS>>
-?FAILURE>>
-??WHAT?>>
+SUCCESS>>Click on the xxplayxx see them change to CAT
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 9 - Setting up AJAX Client Server messaging
+<<<<<<<<<<<<<<<<<
+--Now I want actually use a server instead of the fixture
+--The idea is that each browser should send request to the server to own a token
+--I also should setup test for this stuff.. but I'll wait for the next step.
+--Review how fixtures calls http://javascriptmvc.com/docs.html#&who=jQuery.fixture
+--OK... might as well pull in the server side stuff 
+--Ran into this:
+--http://benlancaster.wordpress.com/2009/02/10/how-to-completely-disable-firefox-cache/
+--FROM: http://forum.javascriptmvc.com/#Topic/32525000000590742
+--Tells how to stop the cache... this would have helped with I was debugging the views
+--In Firefox
+--URL: about:config
+--search 'cache' find network.http.use-cache
+--set to false
+--Now reload - hold the shift key and hit reload
+--Back to the server crap
+--WELLL... I guess I'll use the zool project base to start since that's the point...
+--HECK WITH THAT... lets just provide a file first... and turn 
+--Good read http://forum.javascriptmvc.com/#topic/32525000000217056
+--Was off subject and based on plugin vs app
+--Found this: http://forum.javascriptmvc.com/recent#topic/32525000000149005
+--Wow... javascriptMVC is not using jsonp... oh well makes it easier 4 now.
+--humm... we could figure out errors here... but I'm not.. but should..
+--OK to turn the framework off just comment out fixtures
+--EDIT C:\Users\ChrisT\workspace\javascriptmvc305\spools\spools.js
+	'jquery/model',					// Ajax wrappers
+//        'jquery/model/list/cookie',
+//	'jquery/dom/fixture',			// simulated Ajax requests
+	'jquery/dom/form_params')		// form data helper
+--Comment out fixture
+--EDIT C:\zweb\conf\httpd.conf
+
+<VirtualHost *:80>
+   DocumentRoot "C:\Users\ChrisT\workspace\javascriptmvc305"
+   ServerName js.javascriptmvc305
+<FilesMatch "token" >
+    SetHandler application/x-httpd-php
+</FilesMatch>
+AliasMatch ^/tokens(.*) tokens$1
+   <Directory "C:\Users\ChrisT\workspace\javascriptmvc305">
+       Options Indexes MultiViews FollowSymLinks
+       AllowOverride All
+       Order allow,deny
+       Allow from all
+   </Directory>
+</VirtualHost>
+--Add the FilesMatch and AliasMatch to line up with javascriptMVC model calls
+--Add File C:\Users\ChrisT\workspace\javascriptmvc305\token
+--Add File C:\Users\ChrisT\workspace\javascriptmvc305\tokens
+--EDIT C:\Users\ChrisT\workspace\javascriptmvc305\token
+<?php
+$dataset = '
+[
+{"state": "play", "idCreator": "Christ", "idOwner": "game", "idPlayer": "GSH", "idGameBrd": "1", "idGamePos": "1",  "id": 1},
+.........CUT......
+{"state": "play", "idCreator": "Christ", "idOwner": "game", "idPlayer": "GSH", "idGameBrd": "1", "idGamePos": "25", "id": 25}
+]
+';
+//header('Content-type: application/json');
+//echo $_GET['callback']. '('.json_encode(array('dataset'=>$dataset)) .')';
+//echo $_GET['callback']. '('. $dataset .')';
+echo $dataset;
+?>
+--THIS should simulate... I thought maybe javascriptMVC issues a callback, but it doesnot.
+--See it this works...  seems too..
+--OK... I did quite a bit of setup and debugging the client server stuff... 
+--OF COURSE it's not much code when you get it working..
+--First it was getting the call to token to pass back stuff and setup session and cookies
+--EDIT C:\Users\ChrisT\workspace\javascriptmvc305\token
+--Bacially I wanted to setup the basis for generating a new gameboard and login the user's session and set cookies.
+--I'll let you just read it...
+--EDIT C:\Users\ChrisT\workspace\javascriptmvc305\tokens
+--This gave me some issue.  Basically javascriptMVC use the PUT which I didn't have PHP for so I just changed the .ajax to a POST
+--EDIT C:\Users\ChrisT\workspace\javascriptmvc305\spools\models\token.js
+	update: function( id, attrs, success, error ){
+		$.ajax({
+			url: '/tokens/'+id,
+			type: 'post',
+			dataType: 'json',
+			data: attrs,
+			success: success,
+			error: error,
+			fixture: "-restUpdate" //uses $.fixture.restUpdate for response.
+		});
+--This works and sets a new user and board for a new session.
+--OH I added nukecookieandsession.php to hit that helps debug session and cookie stuff.
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305>nukecookieandsession.php
+--At this point I should add more tests... but I need to get this going for the UI guys to start playing with...
+--Next we need to get 5 users playing the same board and attempt some clicking update conflicts...
+--BUT ENOUGH 4 NOW...
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 9 Setting up AJAX Client Server messaging"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 9 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>Click on stuff and it works
+Watch the network packets in FireBug and inpsect elements... doing what it should but I really need to get more
+automated testing verification, but need to get going on UI also.
+
 
 ======================================================================================
 ------- copy buffer --------------
@@ -651,8 +756,10 @@ SUCCESS>>
 <<<<<<<<<<<<<<<<<
 --WHAT the heck to do next... how about blahblah
 --Lets commit this
+--SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blahblah on dodo"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST
 <<<<<<<<<<<<<<<<<

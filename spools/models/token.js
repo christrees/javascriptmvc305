@@ -36,7 +36,7 @@ $.Model.extend('Spools.Models.Token',
 	update: function( id, attrs, success, error ){
 		$.ajax({
 			url: '/tokens/'+id,
-			type: 'put',
+			type: 'post',
 			dataType: 'json',
 			data: attrs,
 			success: success,

@@ -1,0 +1,27 @@
+<?php
+session_start();
+//-- Check cookie
+	isset($_COOKIE["idPlayer"])  ? ($idPlayer = $_COOKIE["idPlayer"])  : ($idPlayer = "CRAP_GETPLAYER") ;
+//-- Deal with List with no cookie
+        if ($idPlayer == "CRAP_GETPLAYER") {
+                $mySession = session_id();
+                $idPlayer = substr_replace($mySession, '', 3, -1);
+                setcookie("idPlayer", $idPlayer);
+                //-- just set a player right now
+               // $idPlayer = "1234";
+              //  $_COOKIE['idPlayer'] = $idPlayer;
+        }
+//-- Magic token gen for new board
+       $dataset = '[';
+       for ($i = 1; $i <= 25; $i++) {
+            $dataset .= '{"state": "play", "idCreator": "Christ", "idOwner": "game", "idPlayer": "'.$idPlayer.'", "idGameBrd": "1", "idGamePos": "'.$i.'",  "id": '.$i.'}';
+            if ( $i < 25 ) {$dataset .= ',';}
+        }
+       $dataset .= ']';
+
+//header('Content-type: application/json');
+//echo $_GET['callback']. '('.json_encode(array('dataset'=>$dataset)) .')';
+//echo $_GET['callback']. '('. $dataset .')';
+echo $dataset;
+//echo "Hello Chris.. this MESS YOU UP?";
+?>
