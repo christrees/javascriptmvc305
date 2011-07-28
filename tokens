@@ -22,14 +22,35 @@ session_start();
 	$idOwner  = (isset($_POST['idOwner']))  ? ($_POST['idOwner'] ) : ('DeBugFd');
         $idPlayer = (isset($_POST['idPlayer'])) ? ($_POST['idPlayer']) : ('DeBugFd');
 	$state  = (isset($_POST['state']))  ? ($_POST['state'] ) : ('DeBugFd');
+//-- Get the right board for the user
+$theGame = parse_ini_file("gameboard.ini", true);
+$filename = $theGame["boardbank"]["filename"];
+$gameTokenTotal = $theGame["gamegridinit"]["gametotaltokens"];
+$gamedefaulttokenowner = $theGame["gamegridinit"]["gamedefaulttokenowner"];
+            //--Pull the board out of storage
+    if (file_exists($filename)) {
+           $gamebrdout = unserialize(file_get_contents($filename));
+    }
+    if ($gamebrdout[$idGamePos]["idOwner"] == $gamedefaulttokenowner) {
+     $gamebrdout[$idGamePos]["idOwner"] = $idPlayer;
+    }
+        //-- Store the new board
+    $fp = fopen($filename, 'w+') or die("I could not open $filename.");
+    fwrite($fp, serialize($gamebrdout));
+    fclose($fp);
+    echo json_encode($gamebrdout[$idGamePos]);
 
+
+/*
 $dataset  = '{"state": "play", "idCreator": "Christ", "idOwner": "' . $idPlayer ;
 $dataset .= '", "idPlayer": "' . $idPlayer;
 $dataset .= '", "idGameBrd": "' . $idGameBrd;
 $dataset .= '", "idGamePos": "' . $idGamePos;
 $dataset .= '", "id": ' . $id.'}';
+ *
+ */
 //header('Content-type: application/json');
 //echo $_GET['callback']. '('.json_encode(array('dataset'=>$dataset)) .')';
 //echo $_GET['callback']. '('. $dataset .')';
-echo $dataset;
+//echo $dataset;
 ?>

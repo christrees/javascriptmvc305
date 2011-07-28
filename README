@@ -742,11 +742,38 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 9 - TEST
 <<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/nukecookieandsession.php
+--Nuke current stuff and get a cookie
 Browse - http://js.javascriptmvc305/spools/spools.html
 SUCCESS>>Click on stuff and it works
 Watch the network packets in FireBug and inpsect elements... doing what it should but I really need to get more
 automated testing verification, but need to get going on UI also.
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 10 - Multiple Players on one game
+<<<<<<<<<<<<<<<<<
+--OK... we want multiple players to play off of one game board
+--To do this we will be saving the tokens to a file, update that file on user requests
+--First put in the file storage and read
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\token
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\tokens
+--Add a simple file storage for a gameboard... bunch of php stuff you can read..
+--Seems to work and it adds as many players as you have fresh cookies...
+
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 10 Multiple Players on one game"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP x - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+CLICK a few tokens
+Browse - http://js.javascriptmvc305/spools/nukecookieandsession.php
+See the 'other' user and click a few more tokens as your 'new' user
+rinse and repeat
+SUCCESS>>Seems to work OK... I'm sure I'll have 'issues'
 
 ======================================================================================
 ------- copy buffer --------------
