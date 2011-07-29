@@ -831,10 +831,71 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Mod to make demo easier"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 --NOW on host side
---git fetch
---git checkout remotes/origin/spools
---
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
+Enter passphrase for key '/home/cat/.ssh/id_rsa':
+remote: Counting objects: 14, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 8 (delta 6), reused 8 (delta 6)
+Unpacking objects: 100% (8/8), done.
+From github.com:christrees/javascriptmvc305
+   5b1210f..6d21d2f  spools     -> origin/spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+error: You have local changes to 'gamebrdbank.spools'; cannot switch branches.
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+Previous HEAD position was 5b1210f... Mod for javascriptmvc305.xplanb.net due to no FileMatch Apache control
+HEAD is now at 6d21d2f... Mod to make demo easier
+[cat@gator1209 ~/public_html/javascriptmvc305]$
+--Had to delete the data file... maybe put that in ignore... heck with it 4 now...
+--Browse: http://javascriptmvc305.xplanb.net/spools/spools.html
+--PLAY around...
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 11 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://javascriptmvc305.xplanb.net/spools/spools.html
+SUCCESS>> play around seems to work
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 12 - Changed developer computers
+<<<<<<<<<<<<<<<<<
+--Well, I'm on the road and needed to change to my laptop AND work from a coffee shop
+--http://corkeddubuque.com/
+--CHECK IT OUT... this could have been in SF or MtView.... but it's in Dubuque, IA... very nice
+--ANYWAY...
+--Had some issue with network because I forgot last time I used laptop I hardcoded IP...
+--Needed to setup webserver...
+--C:\usr\christ.CATLAP\My Documents\Downloads\WampServer2.1e-x32.exe
+--INSTALL
+--C:\wamp\bin\apache\Apache2.2.17\conf\httpd.conf
+--HUMM.... I'll add to the alia that it pulls in at end...
+--EDIT: C:\wamp\alias\spoolstest.conf
+# Listen for virtual host requests on all IP addresses
+NameVirtualHost *:80
+# Spools Testing change to your workspace
+<VirtualHost *:80>
+   DocumentRoot "C:\usr\christ.CATLAP\work\javascriptmvc305"
+   ServerName js.javascriptmvc305
+   <Directory "C:\usr\christ.CATLAP\work\javascriptmvc305">
+       Options Indexes MultiViews FollowSymLinks
+       AllowOverride All
+       Order allow,deny
+       Allow from all
+   </Directory>
+</VirtualHost>
+--EDIT: C:\WINDOWS\system32\drivers\etc\hosts
+127.0.0.1       js.javascriptmvc305
+--RESTART WAMP <click on taskbar icon>
+--BROWSE http://js.javascriptmvc305/spools/spools.html
+--WORKS
+--Lets fix the 
+--EDIT: C:\usr\christ.CATLAP\work\javascriptmvc305\.gitignore
+--put in *.spools
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Move to laptop and coffee shop"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 11 - TEST
 <<<<<<<<<<<<<<<<<
@@ -842,6 +903,9 @@ Browse - http://js.javascriptmvc305/spools/spools.html
 SUCCESS>>
 ?FAILURE>>
 ??WHAT?>>
+
+
+
 
 ======================================================================================
 ------- copy buffer --------------
