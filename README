@@ -888,11 +888,6 @@ NameVirtualHost *:80
 --RESTART WAMP <click on taskbar icon>
 --BROWSE http://js.javascriptmvc305/spools/spools.html
 --WORKS
---Lets fix the 
---EDIT: C:\usr\christ.CATLAP\work\javascriptmvc305\.gitignore
---put in *.spools
---Lets commit this
---SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Move to laptop and coffee shop"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
@@ -900,10 +895,7 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 >>>>>STEP 11 - TEST
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html
-SUCCESS>>
-?FAILURE>>
-??WHAT?>>
-
+SUCCESS>>Click around and test... 
 
 
 

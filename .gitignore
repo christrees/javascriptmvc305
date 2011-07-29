@@ -29,6 +29,7 @@ nbproject/
 *.log
 *.sql
 *.sqlite
+*.spools
 
 # OS generated files #
 ######################
