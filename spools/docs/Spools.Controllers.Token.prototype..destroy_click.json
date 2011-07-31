@@ -1,0 +1,1 @@
+C({"name": "Spools.Controllers.Token.prototype.&#46;destroy click", "params": {"el": {"description": "", "type": "", "optional": false, "order": 0, "name": "el"}}, "ret": {"type": "undefined", "description": ""}, "type": "function", "parent": "Spools.Controllers.Token.prototype", "comment": "<p>Handle's clicking on a token's destroy link.</p>", "children": []})

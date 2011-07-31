@@ -1,0 +1,1 @@
+C({"name": "Spools.Models.Token.static", "type": "static", "parent": "Spools.Models.Token", "comment": "", "children": ["Spools.Models.Token.static.findAll", "Spools.Models.Token.static.update", "Spools.Models.Token.static.destroy", "Spools.Models.Token.static.create"]})

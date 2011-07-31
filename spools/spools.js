@@ -1,4 +1,16 @@
-steal.plugins(	
+/*
+ * @page spools Spools
+ * @tag home
+ *
+ * ###Spools - Party Play
+ *  
+ * Spools attempting to document and test a Spools game:
+ * A list
+ *
+ * * Spools List item 1 
+ * * Spools List item 2 
+ */
+ steal.plugins(	
 	'jquery/controller',			// a widget factory
 	'jquery/controller/subscribe',	// subscribe to OpenAjax.hub
 	'jquery/view/ejs',				// client side templates

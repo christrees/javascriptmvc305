@@ -970,7 +970,7 @@ C:\usr\christ.CATLAP\work\javascriptmvc305>git status
 #       spools/test/sahi/
 no changes added to commit (use "git add" and/or "git commit -a")
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
-C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blahblah on dodo"
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m ""STEP 12 TEST ME DAMB IT"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 12 - TEST
@@ -991,6 +991,84 @@ C:\usr\christ.CATLAP\work\sahi\userdata\bin>start_dashboard.bat
 --THESE are in C:\usr\christ.CATLAP\work\sahi\userdata\logs\playback
 SUCCESS>> ALL GREEN
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 13 - Some documentation would be nice
+<<<<<<<<<<<<<<<<<
+--Well, this readme is a linear timeline document, but I also want tagging references
+--Our naming of elements are becoming critical esp as we start adding both TEST and css
+--The element names will become or mapping index key for css and test
+--Lets use the documentjs
+--Generate spools docs
+C:\Users\ChrisT\workspace\javascriptmvc305>steal\js spools\scripts\docs.js
+PROCESSING SCRIPTS
+
+  ../steal/steal.js?spools,development
+  ../steal/dev/dev.js
+  ../spools/spools.js
+  ../jquery/controller/controller.js
+  ../jquery/class/class.js
+  ../jquery/jquery.js
+  ../jquery/lang/lang.js
+  ../jquery/event/destroyed/destroyed.js
+  ../jquery/event/event.js
+  ../jquery/controller/subscribe/subscribe.js
+  ../jquery/lang/openajax/openajax.js
+  ../jquery/view/ejs/ejs.js
+  ../jquery/view/view.js
+  ../jquery/lang/rsplit/rsplit.js
+  ../jquery/controller/view/view.js
+  ../jquery/model/model.js
+  ../jquery/dom/form_params/form_params.js
+  ../jquery/dom/dom.js
+  ../spools/models/token.js
+  ../spools/controllers/token_controller.js
+
+GENERATING DOCS -> spools/docs
+
+Using default page layout.  Overwrite by creating: spools/summary.ejs
+
+C:\Users\ChrisT\workspace\javascriptmvc305>
+--OK... go look at what we have
+--BROWSE: http://js.javascriptmvc305/spools/docs.html
+--OK... we've got a lot of pattern stuff that javascriptMVC sets us up with
+--I would like to add some general info on various modules and especially testing with 'User Story' stuff.
+-- http://javascriptmvc.com/docs/DocumentJS.html
+--Something is funny as it does a little bit of redirect... not going to chase that rabit right now.
+--Basically documentJS just works off of the comment tags in the js chain... so to add stuff we start tagging
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\spools.js
+/*
+ * @page spools Spools
+ * @tag home
+ *
+ * ###Spools - Party Play
+ *  
+ * Spools attempting to document and test a Spools game:
+ * A list
+ *
+ * * Spools List item 1 
+ * * Spools List item 2 
+ */
+ --RUN the docs script again
+ C:\Users\ChrisT\workspace\javascriptmvc305>steal\js spools\scripts\docs.js
+--BROWSE: http://js.javascriptmvc305/spools/docs.html
+--See our stuff getting added
+--This is taking the comments and using markdown markup to generate the pages.
+--Markdown: http://en.wikipedia.org/wiki/Markdown
+--HUUMMMM... this just picks up and looks at js docs following the docs.js
+--so that means only spools/spools.js spools/model/token.js spools/controllers/token_controller.js
+--BASICALLY means we do our 'explains' in the mc parts.
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 13 Some documentation"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 13 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/docs.html
+SUCCESS>>See docs
+
+
 ======================================================================================
 ------- copy buffer --------------
 ?????????????????????????????????
@@ -1001,7 +1079,7 @@ SUCCESS>> ALL GREEN
 --Lets commit this
 --SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
-C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 12 TEST ME DAMB IT"
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blah blah"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST

@@ -1,0 +1,1 @@
+C({"name": "Spools.Controllers.Token.prototype.&#46;update click", "params": {"el": {"description": "", "type": "", "optional": false, "order": 0, "name": "el"}}, "ret": {"type": "undefined", "description": ""}, "type": "function", "parent": "Spools.Controllers.Token.prototype", "comment": "<p>Updates the token from the edit values.</p>", "children": []})

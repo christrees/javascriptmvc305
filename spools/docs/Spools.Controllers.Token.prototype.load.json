@@ -1,0 +1,1 @@
+C({"name": "Spools.Controllers.Token.prototype.load", "params": {}, "ret": {"type": "undefined", "description": ""}, "type": "function", "parent": "Spools.Controllers.Token.prototype", "comment": "<p>When the page loads, gets all tokens to be displayed.</p>", "children": []})

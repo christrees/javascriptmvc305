@@ -1,0 +1,1 @@
+C({"name": "Spools.Controllers.Token.prototype.show", "params": {"token": {"description": "", "type": "", "optional": false, "order": 0, "name": "token"}}, "ret": {"type": "undefined", "description": ""}, "type": "function", "parent": "Spools.Controllers.Token.prototype", "comment": "<p>Shows a token's information.</p>", "children": []})
