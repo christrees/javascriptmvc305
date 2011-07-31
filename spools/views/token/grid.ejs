@@ -1,10 +1,12 @@
 <h2>Game Grid</h2>
-<table cellspacing='0px'>
+<div id="PGSpoolsContainer">
+<table id="PGGridContainer" cellspacing='0px'>
 <tr>
 <%var a = 0; var r = 1; for(var i = 0; i < tokens.length ; i++){ a++; %>
     <%if( a == 6 ) { a = 1; r++; %> </tr><tr> <%}%>
-	<td <%= tokens[i]%>>
+	<td class="PGToken"<%= tokens[i]%>>
 		<%= $.View('//spools/views/token/icon',tokens[i])%>
 	</td>
 <%}%>
 </tr></table>
+</div>

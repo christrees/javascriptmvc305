@@ -1,2 +1,80 @@
 body {font-family: verdana}
 td {padding: 3px;}
+#PGSpoolsContainer {
+	/* This container starts the play grid display */
+	/*position:absolute;*/
+	position:relative;/* being stacking context */
+	width:337px;
+	height:339px;
+	z-index:4;
+	/*
+	left: 11px;
+	top: 101px;
+	*/
+	background-image:url(resources/games_spools_bg.png);
+	background-repeat:no-repeat;
+}
+#PGGridContainer {
+	/* This container is just the token grid */
+	position:absolute;
+	width:235px;
+	height:235px;
+	z-index:2;
+	/*float:right;*/
+	bottom: 12px;
+	right:20px;
+	/*
+	left: 79px;
+	top: 81px;
+	*/
+	
+}
+.PGGrid {
+	/* css class for an grid space */
+	position:relative;
+	/*
+	width:50px;
+	height:50px;
+	*/
+	z-index:2;
+	/*float:left;*/
+        text-align: center;
+        color: green;
+}
+.PGToken {
+	/* this is the PlayGameToken */
+    	background-image:url(resources/CoinIcon.png);
+	background-repeat:no-repeat;
+}
+.PGTokenPick {
+  -webkit-animation-name: pulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+}
+@-webkit-keyframes pulse {
+ from {
+   opacity: 0.0;
+   font-size: 100%;
+ }
+ to {
+   opacity: 1.0;
+   font-size: 200%;
+ }
+}
+.token {
+	/* this is the javascriptmvc model class tag */
+	position:relative;
+	/*Fit for Joes grid*/
+	width:41px;
+	height:41px;
+	/*Fit for Shaynes token icon 
+	width:60px;
+	height:60px;
+	*/
+	z-index:2;
+	float:left;
+        text-align: center;
+        color: green;
+}

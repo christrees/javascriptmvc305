@@ -59,6 +59,7 @@ $.Controller.extend('Spools.Controllers.Token',
  */
 '.pick click': function( el ){
 	var $token = el.closest('.token');
+	$token.removeClass("PGToken");
 	$token.model().update($token.formParams());
 },
  /**

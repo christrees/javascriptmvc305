@@ -1068,6 +1068,57 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 Browse - http://js.javascriptmvc305/spools/docs.html
 SUCCESS>>See docs
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 14 - EyeCandy or Curtains for ALL
+<<<<<<<<<<<<<<<<<
+--WELLLL.... I like ASCII but most the world want pretty crap all over... lets hang some css
+--My origanl intent when starting this was to use Joes css and now we are getting to it.
+--file:///C:/Users/ChrisT/workspace/spools/effects/gp_playgame.html
+--Shows us a look at the goal.  We are going to focus in on the token grid ONLY... as this the element I was focusing on.
+--OK... he is putting the grid in <div id="PGGridContainer"></div>
+--BUT he's got an image games_spools_bg.png that is called by <div id="PGSpoolsContainer">
+--OK.. lets hang curtains.
+--First we need the resources
+--COPY: C:\Users\ChrisT\workspace\spools\image\games_spools_bg.png and CoinIcon.png
+--TO: C:\Users\ChrisT\workspace\javascriptmvc305\spools\resources
+--Next lets pull in the css
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\spools.css
+--I'll let you just read the css we added joe old css calls and put some style in .token class from our framework.
+--OK... basically we want to see a token when it's not owned... and take it away when you click on it
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\controllers\token_controller.js
+'.pick click': function( el ){
+	var $token = el.closest('.token');
+	$token.removeClass("PGToken");
+	$token.model().update($token.formParams());
+--THAT should remove the token display and run the...
+--Now add the token when we show the grid
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\grid.ejs ADD the class PGToken
+<td class="PGToken"<%= tokens[i]%>>
+--RUN our test...
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "EyeCandy or Curtains for ALL"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 14 - TEST
+<<<<<<<<<<<<<<<<<
+--Start sahi
+C:\usr\christ.CATLAP\work\sahi\userdata\bin>start_dashboard.bat
+--CLICK firefox button
+--ALT-DBLCLICK on browser page
+--CLICK on PLAYBACK TAB
+--Move spools_PartyPlay.sah to C:\usr\christ.CATLAP\work\sahi\userdata\scripts
+--FILE: spools_PartyPlay.sah
+--START URL: http://js.javascriptmvc305/spools/spools.html
+--CLICK SET button
+--CLICK PLAY button
+--WATCH SCRIPT RUN.... when done
+--CLICK View Logs
+--CLICK the log you just ran such as http://js.javascriptmvc305/_s_/dyn/Log_viewLogs/spools_PartyPlay__31Jul2011__11_29_24.htm
+--THESE are in C:\usr\christ.CATLAP\work\sahi\userdata\logs\playback
+SUCCESS>> ALL GREEN
+
 
 ======================================================================================
 ------- copy buffer --------------
