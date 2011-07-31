@@ -1,0 +1,28 @@
+
+//- Setup a new board
+_assertExists(_link("Board ME"));
+_assert(_isVisible(_link("Board ME")));
+_assertEqual("Board ME", _getText(_link("Board ME")));
+_assertContainsText("Board ME", _link("Board ME"));
+_click(_link("Board ME"));
+_assertExists(_link("Spools Me"));
+_assert(_isVisible(_link("Spools Me")));
+//- Goback to board
+_click(_link("Spools Me"));
+_assertExists(_link("Board ME"));
+_assert(_isVisible(_link("Board ME")));
+//- Confrim our new gameboard
+_assertExists(_div("token"));
+_highlight(_div("token"));
+_assertEqual("Game Grid xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx", _getText(_div("token")));
+_assertContainsText("Game Grid xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx xxplayxx", _div("token"));
+//- Just march through first 10
+for (var $i=0; $i<10; $i++){
+ _highlight(_link("xxplayxx["+$i+"]"));
+ _wait(500);
+}
+for (var $i=0; $i<10; $i++){
+ _highlight(_link("xxplayxx[0]"));
+ _wait(1000);
+ _click(_link("xxplayxx[0]"));
+}

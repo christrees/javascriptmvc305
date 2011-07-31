@@ -897,7 +897,99 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 Browse - http://js.javascriptmvc305/spools/spools.html
 SUCCESS>>Click around and test... 
 
-
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 12 - TEST ME DAMB IT!!!
+<<<<<<<<<<<<<<<<<
+--Lets put gamebrdbank.spools in .gitignore so we don't have to listen to it change in git
+--EDIT: C:\usr\christ.CATLAP\work\javascriptmvc305\.gitignore
+--put in *.spools
+--SO... for all spools dynamic 'datafiles' are .spools 
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\usr\christ.CATLAP\work\javascriptmvc305>git commit -m "ignore .spools files"
+[spools 96db48c] ignore .spools files
+ 2 files changed, 2 insertions(+), 9 deletions(-)
+--OK... now go back to funtional test
+--BROWSE http://js.javascriptmvc305/spools/qunit.html
+--THEY WORK... an assert is run ..were are DONE.. <funny>
+--EDIT: C:\usr\christ.CATLAP\work\javascriptmvc305\spools\test\qunit\qunit.js
+--BOTH spools_test.js and token_test.js are called...
+--EDIT: C:\usr\christ.CATLAP\work\javascriptmvc305\spools\test\qunit\spools_test.js
+--Just an assert called
+--EDIT : C:\usr\christ.CATLAP\work\javascriptmvc305\spools\test\qunit\token_test.js
+--Humm... this is obviously not called...
+--EDIT: C:\usr\christ.CATLAP\work\javascriptmvc305\spools\test\qunit\qunit.js
+--TYPO: had token_controller_test should be token_test
+--Added some more unit test not real complete but need to get the functional tests going
+--Then I will add func and unit as I change things.
+--http://javascriptmvc.com/docs/FuncUnit.html#&who=mastering
+--Hummm... would like to use the real selenium web interface... wonder if I can save out to se
+--http://sourceforge.net/projects/sahi/files/sahi-v35/
+--se clone +
+--C:\usr\christ.CATLAP\My Documents\Downloads\sahi_20110213.zip
+Sahi V3.5
+To install Sahi using the installer, download install_sahi_v35_2011mmdd.jar
+and run
+java -jar install_sahi_v35_2011mmdd.jar
+If you do not wish to use the installer,
+1) download sahi_2011ddmm.zip
+2) Unzip it to any folder, C:\usr\christ.CATLAP\work\sahi
+3) Open a command prompt and navigate to sahi\userdata\bin
+cd C:\usr\christ.CATLAP\work\sahi\userdata\bin
+4) run start_dashboard.bat
+start_dashboard.bat
+--Wow... this is pretty nice...  (22MB) and took me less time then Selenium.
+--I need to look all the test integration stuff... but will use this right now
+--So... click on one of the browsers it finds <I use Firefox not 4>
+--Browse: http://js.javascriptmvc305/spools/spools.html
+--ALT-DBLCLICK on the webpage brings up the script stuff
+--Basiclly you can record and edit a script file
+--Right now looks like the scripts need to be in the sahi dir
+--C:\usr\christ.CATLAP\work\sahi\userdata\scripts\spools_PartyPlay.sah
+--Copy this file to our test dir so we have one with our spools
+--
+--Lets commit this
+--SAVE THIS README
+C:\usr\christ.CATLAP\work\javascriptmvc305>git status
+# On branch spools
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README
+#       modified:   gamebrdbank.spools
+#       modified:   spools/test/funcunit/spools_test.js
+#       modified:   spools/test/funcunit/token_controller_test.js
+#       modified:   spools/test/qunit/qunit.js
+#       modified:   spools/test/qunit/token_test.js
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       spools/test/sahi/
+no changes added to commit (use "git add" and/or "git commit -a")
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blahblah on dodo"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 12 - TEST
+<<<<<<<<<<<<<<<<<
+--Start sahi
+C:\usr\christ.CATLAP\work\sahi\userdata\bin>start_dashboard.bat
+--CLICK firefox button
+--ALT-DBLCLICK on browser page
+--CLICK on PLAYBACK TAB
+--Move spools_PartyPlay.sah to C:\usr\christ.CATLAP\work\sahi\userdata\scripts
+--FILE: spools_PartyPlay.sah
+--START URL: http://js.javascriptmvc305/spools/spools.html
+--CLICK SET button
+--CLICK PLAY button
+--WATCH SCRIPT RUN.... when done
+--CLICK View Logs
+--CLICK the log you just ran such as http://js.javascriptmvc305/_s_/dyn/Log_viewLogs/spools_PartyPlay__31Jul2011__11_29_24.htm
+--THESE are in C:\usr\christ.CATLAP\work\sahi\userdata\logs\playback
+SUCCESS>> ALL GREEN
 
 ======================================================================================
 ------- copy buffer --------------
@@ -909,7 +1001,7 @@ SUCCESS>>Click around and test...
 --Lets commit this
 --SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
-C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blahblah on dodo"
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 12 TEST ME DAMB IT"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST

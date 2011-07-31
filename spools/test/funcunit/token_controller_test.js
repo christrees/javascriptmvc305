@@ -9,10 +9,10 @@ module("token", {
 	},
 	//a helper function that creates a token
 	create: function () {
-		S("[name=name]").type("Ice");
-		S("[name=description]").type("Cold Water");
-		S("[type=submit]").click();
-		S('.token:nth-child(2)').exists();
+	//	S("[name=name]").type("Ice");
+	//	S("[name=description]").type("Cold Water");
+	//	S("[type=submit]").click();
+	//	S('.token:nth-child(2)').exists();
 	}
 });
 
@@ -20,15 +20,17 @@ test("tokens present", function () {
 	ok(S('.token').size() >= 1, "There is at least one token");
 });
 
-test("create tokens", function () {
+test("Board Me", function () {
 
 	this.create();
 
-	S(function () {
-		ok(S('.token:nth-child(2) td:first').text().match(/Ice/), "Typed Ice");
-	});
-});
+	S('href="/newboard.php"').click();
+	S('href="/spools/spools.html"').click();
+        S('href="/newboard.php"').exists(function (){
+        });
 
+});
+/*
 test("edit tokens", function () {
 
 	this.create();
@@ -59,3 +61,4 @@ test("destroy", function () {
 	});
 
 });
+*/

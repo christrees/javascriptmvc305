@@ -5,22 +5,36 @@ test("findAll", function(){
 	Spools.Models.Token.findAll({}, function(tokens){
 		start()
 		ok(tokens)
-        ok(tokens.length)
-        ok(tokens[0].name)
-        ok(tokens[0].description)
-	});
+        ok(tokens.length, "got lenght")
+        ok(tokens[0].state, "state")
+        ok(tokens[0].idCreator, "idCreator")
+        ok(tokens[0].idOwner, "idOwner")
+        ok(tokens[0].idPlayer, "idPlayer")
+        ok(tokens[0].idGameBrd,"idGameBrd")
+        ok(tokens[0].idGamePos, "idGamePos")
+        ok(tokens[0].id, "id")
+       // ok(tokens[0].XXXX, "crap test")
+	}, "Test Token data types");
 	
 })
 
 test("create", function(){
 	stop(2000);
-	new Spools.Models.Token({name: "dry cleaning", description: "take to street corner"}).save(function(token){
+	new Spools.Models.Token({
+            state: "play",
+            idCreator: "Christ", 
+            idOwner: "game", 
+            idPlayer: "game", 
+            idGameBrd: "1", 
+            idGamePos: "1", 
+            id: 1
+        }).save(function(token){
 		start();
 		ok(token);
         ok(token.id);
-        equals(token.name,"dry cleaning")
+        equals(token.state,"play")
         token.destroy()
-	})
+	},"Test Token Create")
 })
 test("update" , function(){
 	stop();
