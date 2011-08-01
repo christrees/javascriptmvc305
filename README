@@ -1098,7 +1098,7 @@ SUCCESS>>See docs
 --Lets commit this
 --SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
-C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "EyeCandy or Curtains for ALL"
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 14 EyeCandy or Curtains for ALL"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 14 - TEST
@@ -1118,7 +1118,34 @@ C:\usr\christ.CATLAP\work\sahi\userdata\bin>start_dashboard.bat
 --CLICK the log you just ran such as http://js.javascriptmvc305/_s_/dyn/Log_viewLogs/spools_PartyPlay__31Jul2011__11_29_24.htm
 --THESE are in C:\usr\christ.CATLAP\work\sahi\userdata\logs\playback
 SUCCESS>> ALL GREEN
+.... WOOPS... I should change the name from SPOOLS ASCII to SPOOLS - Curtians for ALL!! <but then a test would fail>
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 15 - Some Cleanup
+<<<<<<<<<<<<<<<<<
+--Some crap I would like to clean up
+--Shrink tokens to fit Joe board <css mods>
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\spools.css
+--Cleanup text so it fits <we wanted to limit text to 4 chars>
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\icon.ejs
+--When you refresh the page the tokens come back... I need to set the icon class based on the data
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\grid.ejs
+--Put class="PGToken" if the owner is game... we may need to think about a better way to handel tokens, but not now.
+--Lets commit this and push it up to xplanb
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 15 Some Cleanup"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 15 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>Works... but we should add formal testing
+Browse - http://javascriptmvc305.xplanb.net/spools/spools.html
+SUCCESS>>Works... but we should add formal testing
 
 ======================================================================================
 ------- copy buffer --------------

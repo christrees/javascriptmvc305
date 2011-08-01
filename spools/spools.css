@@ -1,5 +1,7 @@
+/*
 body {font-family: verdana}
 td {padding: 3px;}
+*/
 #PGSpoolsContainer {
 	/* This container starts the play grid display */
 	/*position:absolute;*/
@@ -21,8 +23,8 @@ td {padding: 3px;}
 	height:235px;
 	z-index:2;
 	/*float:right;*/
-	bottom: 12px;
-	right:20px;
+	bottom: 23px;
+	right:23px;
 	/*
 	left: 79px;
 	top: 81px;
@@ -37,14 +39,18 @@ td {padding: 3px;}
 	height:50px;
 	*/
 	z-index:2;
+	margin:0px;
 	/*float:left;*/
-        text-align: center;
-        color: green;
+       color: green;
 }
 .PGToken {
 	/* this is the PlayGameToken */
     	background-image:url(resources/CoinIcon.png);
 	background-repeat:no-repeat;
+	-webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 }
 .PGTokenPick {
   -webkit-animation-name: pulse;
@@ -63,18 +69,18 @@ td {padding: 3px;}
    font-size: 200%;
  }
 }
+.center {margin-left:auto; margin-right:auto;}
 .token {
 	/* this is the javascriptmvc model class tag */
 	position:relative;
 	/*Fit for Joes grid*/
-	width:41px;
-	height:41px;
+	width:45px;
+	height:45px;
 	/*Fit for Shaynes token icon 
 	width:60px;
 	height:60px;
 	*/
 	z-index:2;
-	float:left;
-        text-align: center;
+		text-align: center;
         color: green;
 }
