@@ -2,6 +2,7 @@
 body {font-family: verdana}
 td {padding: 3px;}
 */
+td { color: white;}
 #PGSpoolsContainer {
 	/* This container starts the play grid display */
 	/*position:absolute;*/
@@ -19,11 +20,11 @@ td {padding: 3px;}
 #PGGridContainer {
 	/* This container is just the token grid */
 	position:absolute;
-	width:235px;
-	height:235px;
+	width:285px;
+	height:285px;
 	z-index:2;
 	/*float:right;*/
-	bottom: 23px;
+	bottom: 20px;
 	right:23px;
 	/*
 	left: 79px;
@@ -39,9 +40,9 @@ td {padding: 3px;}
 	height:50px;
 	*/
 	z-index:2;
-	margin:0px;
+	margin:5px;
 	/*float:left;*/
-       color: green;
+        color: green;
 }
 .PGToken {
 	/* this is the PlayGameToken */
@@ -61,12 +62,14 @@ td {padding: 3px;}
 }
 @-webkit-keyframes pulse {
  from {
-   opacity: 0.0;
-   font-size: 100%;
+   opacity: 1.0;
+   color: red;
+    background-size: cover;
  }
  to {
-   opacity: 1.0;
-   font-size: 200%;
+   opacity: 0.3;
+   color: red;
+    background-size: 50%;
  }
 }
 .center {margin-left:auto; margin-right:auto;}
@@ -75,12 +78,12 @@ td {padding: 3px;}
 	position:relative;
 	/*Fit for Joes grid*/
 	width:45px;
-	height:45px;
+	height:46px;
 	/*Fit for Shaynes token icon 
 	width:60px;
 	height:60px;
 	*/
 	z-index:2;
-		text-align: center;
+	text-align: center;
         color: green;
 }

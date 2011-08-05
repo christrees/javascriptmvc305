@@ -1136,6 +1136,7 @@ SUCCESS>> ALL GREEN
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 15 Some Cleanup"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
 [cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
 [cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
 
@@ -1146,6 +1147,38 @@ Browse - http://js.javascriptmvc305/spools/spools.html
 SUCCESS>>Works... but we should add formal testing
 Browse - http://javascriptmvc305.xplanb.net/spools/spools.html
 SUCCESS>>Works... but we should add formal testing
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 16 - multiple boards and TEST
+<<<<<<<<<<<<<<<<<
+--Well, we need multiboard generation
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\newboard.php
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\controllers\token_controller.js
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\spools.css
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\token.php
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\tokens.php
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\common.php
+--Basically cleanup the server side and reduce code by collapsing into common.php
+--NOW... add the scoreboard text..
+http://js.javascriptmvc305/spools/spools.html
+http://docs.jquery.com/Qunit#API_documentation
+https://github.com/jquery/jquery-ui/blob/master/tests/unit/menu/menu_core.js
+http://js.javascriptmvc305/spools/qunit.html
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 16 multiple boards and TEST"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm *.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP x - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>
+?FAILURE>>
+??WHAT?>>
 
 ======================================================================================
 ------- copy buffer --------------
@@ -1159,6 +1192,9 @@ SUCCESS>>Works... but we should add formal testing
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "blah blah"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST
 <<<<<<<<<<<<<<<<<

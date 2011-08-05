@@ -1,9 +1,10 @@
 <h2>Game Grid</h2>
 <div id="PGSpoolsContainer">
 <table id="PGGridContainer" class="center" cellspacing='0px'>
-<tr>
+<tr><td></td><td>x/x</td><td>x/x</td><td>x/x</td><td>x/x</td><td>x/x</td></tr>
+<tr><td>x/x</td>
 <%var a = 0; var r = 1; for(var i = 0; i < tokens.length ; i++){ a++; %>
-    <%if( a == 6 ) { a = 1; r++; %> </tr><tr> <%}%>
+    <%if( a == 6 ) { a = 1; r++; %> </tr><tr><td>x/x</td> <%}%>
 	<td <%= tokens[i]%> <% if (tokens[i].idOwner == 'game') {%>class="PGToken"<%}%> >
 		<%= $.View('//spools/views/token/icon',tokens[i])%>
 	</td>
