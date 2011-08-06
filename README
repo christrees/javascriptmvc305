@@ -1173,12 +1173,186 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 [cat@gator1209 ~/public_html/javascriptmvc305]$ rm *.spools
 [cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
 <<<<<<<<<<<<<<<<<
->>>>>STEP x - TEST
+>>>>>STEP 16 - TEST
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html
 SUCCESS>>
 ?FAILURE>>
 ??WHAT?>>
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 17 - Create Games Controller
+<<<<<<<<<<<<<<<<<
+--Well, we want to use the gameboard on games so we need a games 
+C:\Users\ChrisT\workspace\javascriptmvc305>js jquery\generate\scaffold Spools.Models.Game
+      spools/controllers
+      spools/controllers/game_controller.js
+      spools/fixtures
+      spools/fixtures/games.json.get
+      spools/models
+      spools/models/game.js
+      spools/test
+      spools/test/funcunit
+      spools/test/funcunit/game_controller_test.js
+      spools/test/qunit
+      spools/test/qunit/game_test.js
+      spools/views
+      spools/views/game
+      spools/views/game/edit.ejs
+      spools/views/game/init.ejs
+      spools/views/game/list.ejs
+      spools/views/game/show.ejs
+C:\Users\ChrisT\workspace\javascriptmvc305>
+--EDIT  spools/spools.js
+	.models('token', 'game')
+	.controllers('token', 'game')
+--EDIT  spools/spools.js
+	'jquery/dom/fixture',			// simulated Ajax requests
+--Use the fixture to set the games thing up and make sure I can see things.
+--Browse - http://js.javascriptmvc305/spools/spools.html
+--OK... lets mod C:\Users\ChrisT\workspace\javascriptmvc305\spools\fixtures\games.json.get
+--Just put in some basic fields we think we want
+--Browse - http://js.javascriptmvc305/spools/spools.html
+--OK... what we really need is a file on the server to handle our games list for each user.
+--We are going to call this UUUUgamesbank.spools where UUUU is user 4digit id
+--Remember our XXXgamebrdbank.spools is the gamegrid with tokens XXX is idGameBrd
+--Lets get the New Game to write to UUUgamesbank.spools
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\models\games.js
+	findAll: function( params, success, error ){
+		$.ajax({
+			//url: '/game',
+			url: '/game.php',
+....
+	update: function( id, attrs, success, error ){
+		$.ajax({
+		//	url: '/games/'+id,
+			url: '/games.php/'+id,
+		//	type: 'put',
+			type: 'post',
+--Basically hack this to work with the server till we can get a real framework in.
+--We shouldn't have to hack the url, but because we are sticking to simple php files.
+--I don't want to parse the URL and our host don't let us set the files matcher in apache... this is a hack for that.
+--ANYWAY...
+--EDIT  spools/spools.js
+	// 'jquery/dom/fixture',			// simulated Ajax requests
+--Take the fixtures back out so we go to the server.
+--Now if you look at the network request <firebug or chrome wrench->tools->developertools>
+--We see the post
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\common.php
+--ADD extra post fields to look for
+//-- if your using games you should be passing me this stuff on POST
+	$messagae_post         = (isset($_POST['message']))   ? ($_POST['message']  ) : ('messagefuckd');
+	$TeamNameA_post         = (isset($_POST['TeamNameA']))   ? ($_POST['TeamNameA']  ) : ('TeamNameAfuckd');
+	$TeamNameB_post         = (isset($_POST['TeamNameB']))   ? ($_POST['TeamNameB']  ) : ('TeamNameBfuckd');
+--ADD the read and/or creation of user gamesbank
+//--Pull the Users games out of storage
+//-- Get the right games bank for the user
+$gamesbankbasename = $idPlayer . $theGame["gamesinit"]["filename"];
+if (file_exists($gamesbankbasename)) {
+     $gamebankout = unserialize(file_get_contents($gamesbankbasename));
+} else { //-User does not have gamesbank so generate one
+    $gamebankout[0] = $theGame["gamesbankinit"];
+    $fp = fopen($gamesbankbasename, 'w+') or die("I could not open $gamesbankbasename.");
+    //--Reference: http://php.net/manual/en/language.oop5.serialization.php
+    fwrite($fp, serialize($gamebankout));
+    fclose($fp);
+}
+--OK.... now fill in the ini stuff
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\gamebrd.ini
+[gamesinit]
+filename = gamesbank.spools
+
+[gamesbankinit]
+idGameBrd = 0
+message = "New Player No Games"
+TeamNameA = "Home Team"
+TeamNameB = "Away Team"
+id = 0
+
+--OK... now handle specific request from the game model
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\game.php
+<?php
+include_once 'common.php';
+//--OK we should have a $gamebankout array
+//--Send the games model to the user
+$end = sizeof($gamebankout);
+$i = 1;
+echo '[';
+foreach ($gamebankout as $value) {
+    echo json_encode($value);
+    if ( $i < $end) echo ',';
+    $i++;
+}
+echo ']';
+?>
+--OK... now the updates / create
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\games.php
+<?php
+include_once 'common.php';
+//--OK we should have a $gamebankout array
+//--User just sent us an update
+    if (isset($gamebankout[$idGameBrd_post])) {
+     $gamebankout[$idGameBrd_post]["idGameBrd"] = $idGameBrd_post;
+     $gamebankout[$idGameBrd_post]["message"] = "beenread";
+     $gamebankout[$idGameBrd_post]["TeamNameA"] = $TeamNameA_post;
+     $gamebankout[$idGameBrd_post]["TeamNameB"] = $TeamNameB_post;
+     $gamebankout[$idGameBrd_post]["id"] = $id;
+    } else {
+     $gamebankout[$idGameBrd_post] = $theGame["gamesbankinit"];
+     $gamebankout[$idGameBrd_post]["idGameBrd"] = $idGameBrd_post;
+     $gamebankout[$idGameBrd_post]["message"] = "brannew";
+     $gamebankout[$idGameBrd_post]["TeamNameA"] = $TeamNameA_post;
+     $gamebankout[$idGameBrd_post]["TeamNameB"] = $TeamNameB_post;
+     $gamebankout[$idGameBrd_post]["id"] = $idGameBrd_post;
+    }
+    //-- Store the new games list
+    $fp = fopen($gamesbankbasename, 'w+') or die("I could not open $gamesbankbasename.");
+    fwrite($fp, serialize($gamebankout));
+    fclose($fp);
+    //--Give the updated data back
+    echo json_encode($gamebankout[$idGameBrd_post]);
+?>
+--BAD CHRIS... I should be doing test but I'm not...
+--ANYWAY... this seems to work ok.. we want to display a game.
+--The way we set this up is a cookie is used to id the user and the game board.
+--We need to wire a way for the user to view a game
+--WELL.... KISS... put a view link on the games list.
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\game\show.ejs
+	<a href='javascript://' class='view'>view</a>
+--Now put a controller in for that view click
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\controllers\game_controller.js
+ /**
+ *	 Handle's clicking on a game's view link.
+ */
+'.view click': function( el ){
+        var game = el.closest('.game').model();
+	if(confirm("Changing the current game view")){
+                $.cookie('idGameBrd', game.valueOf('idGameBrd'));
+		 Spools.Models.Token.findAll({}, viewThisGameBrd);
+		 Spools.Controllers.Token.grid(viewThisGameBrd);
+	}
+ },
+--OK... so when the user clicks on a game view we want to set the idGameBrd cookie to the right board
+--Then we want to load the gamegrid with that game.
+--NOTE: I put in the annoying alert..
+--CRAP... I not getting the update I expect
+--
+--Lets commit this because we've got quite a bit of work
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 17 - Create Games Controller"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 17 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>some shit works... but my view <the whole purpose> does not
+?FAILURE>>I FAIL... because I'm not writting enough tests as we go... but sometimes we suck...
+??WHAT?>>WORK on the darn cross-controller-event-triggering go LOOK THIS UP NEXT...
+
 
 ======================================================================================
 ------- copy buffer --------------

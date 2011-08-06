@@ -20,12 +20,12 @@
 //	'jquery/dom/fixture',			// simulated Ajax requests
 	'jquery/dom/form_params')		// form data helper
 	
-	.css('spools')	// loads styles
+//	.css('spools')	// loads styles
 
 	.resources()					// 3rd party script's (like jQueryUI), in resources folder
 
-	.models('token')						// loads files in models folder
+	.models('token', 'game')						// loads files in models folder
 
-	.controllers('token')					// loads files in controllers folder
+	.controllers('token', 'game')					// loads files in controllers folder
 
 	.views();						// adds views to be added to build

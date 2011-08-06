@@ -21,10 +21,27 @@ if ($idPlayer == "CRAP_GETPLAYER") {
 	$idOwner    = (isset($_POST['idOwner']))  ? ($_POST['idOwner'] ) : ('DeBugFd');
         $idPlayer_post   = (isset($_POST['idPlayer'])) ? ($_POST['idPlayer']) : ('DeBugFd');
 	$state      = (isset($_POST['state']))  ? ($_POST['state'] ) : ('DeBugFd');
+//-- if your using games you should be passing me this stuff on POST
+	$messagae_post         = (isset($_POST['message']))   ? ($_POST['message']  ) : ('messagefuckd');
+	$TeamNameA_post         = (isset($_POST['TeamNameA']))   ? ($_POST['TeamNameA']  ) : ('TeamNameAfuckd');
+	$TeamNameB_post         = (isset($_POST['TeamNameB']))   ? ($_POST['TeamNameB']  ) : ('TeamNameBfuckd');
 //-- Get the right board for the user
 $theGame = parse_ini_file("gameboard.ini", true);
 $gameTokenTotal = $theGame["gamegridinit"]["gametotaltokens"];
 $gamedefaulttokenowner = $theGame["gamegridinit"]["gamedefaulttokenowner"];
+//--Pull the Users games out of storage
+//-- Get the right games bank for the user
+$gamesbankbasename = $idPlayer . $theGame["gamesinit"]["filename"];
+if (file_exists($gamesbankbasename)) {
+     $gamebankout = unserialize(file_get_contents($gamesbankbasename));
+} else { //-User does not have gamesbank so generate one
+    $gamebankout[0] = $theGame["gamesbankinit"];
+    $fp = fopen($gamesbankbasename, 'w+') or die("I could not open $gamesbankbasename.");
+    //--Reference: http://php.net/manual/en/language.oop5.serialization.php
+    fwrite($fp, serialize($gamebankout));
+    fclose($fp);
+}
+
 //--Pull the board out of storage
 //-- Get the right board for the user
 $filename = $idGameBrd . $theGame["boardbank"]["filename"];

@@ -1,13 +1,15 @@
-<h2>Game Grid</h2>
 <div id="PGSpoolsContainer">
-<table id="PGGridContainer" class="center" cellspacing='0px'>
-<tr><td></td><td>x/x</td><td>x/x</td><td>x/x</td><td>x/x</td><td>x/x</td></tr>
-<tr><td>x/x</td>
+<table id="PGGridContainer" class="center" border="1" cellspacing='0px'>
+<caption>Game Grid</caption>
+<tr><th colspan=2 rowspan=2><th colspan=5><span id="gridTeamNameA">Team A</span>
+<tr><th>x/x<th>x/x<th>x/x<th>x/x<th>x/x
+<tr><th rowspan=5><span id="gridTeamNameB">Team B</span>
+<th>x/x
 <%var a = 0; var r = 1; for(var i = 0; i < tokens.length ; i++){ a++; %>
-    <%if( a == 6 ) { a = 1; r++; %> </tr><tr><td>x/x</td> <%}%>
+    <%if( a == 6 ) { a = 1; r++; %> <tr><th>x/x <%}%>
 	<td <%= tokens[i]%> <% if (tokens[i].idOwner == 'game') {%>class="PGToken"<%}%> >
 		<%= $.View('//spools/views/token/icon',tokens[i])%>
 	</td>
 <%}%>
-</tr></table>
+</table>
 </div>
