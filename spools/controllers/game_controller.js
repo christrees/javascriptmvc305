@@ -49,12 +49,14 @@ $.Controller.extend('Spools.Controllers.Game',
  /**
  *	 Handle's clicking on a game's view link.
  */
-'.view click': function( el ){
+ '.view click': function( el ){
+        $('.game').removeClass('gameselect');
         var game = el.closest('.game').model();
-	if(confirm("Changing the current game view")){
-                $.cookie('idGameBrd', game.valueOf('idGameBrd'));
-		Spools.Controllers.Token.load();
-	}
+        $.cookie('DoDo', 'Dah');
+        document.cookie = "idGameBrd="+ game['idGameBrd'] +"; path=/";
+        Spools.Models.Token.findAll({}, function(data){
+          $('#token').html(Spools.Controllers.Token.prototype.view('grid', {tokens:data, game:game} ));
+        });
  },
  /**
  * Creates and places the edit interface.

@@ -1,9 +1,9 @@
 <div id="PGSpoolsContainer">
 <table id="PGGridContainer" class="center" border="1" cellspacing='0px'>
 <caption>Game Grid</caption>
-<tr><th colspan=2 rowspan=2><th colspan=5><span id="gridTeamNameA">Team A</span>
+<tr><th colspan=2 rowspan=2><th colspan=5><span id="gridTeamNameA"><%= game["TeamNameA"] %></span>
 <tr><th>x/x<th>x/x<th>x/x<th>x/x<th>x/x
-<tr><th rowspan=5><span id="gridTeamNameB">Team B</span>
+<tr><th rowspan=5><span id="gridTeamNameB"><%= game["TeamNameB"] %></span>
 <th>x/x
 <%var a = 0; var r = 1; for(var i = 0; i < tokens.length ; i++){ a++; %>
     <%if( a == 6 ) { a = 1; r++; %> <tr><th>x/x <%}%>

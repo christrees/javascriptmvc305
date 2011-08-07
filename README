@@ -1336,14 +1336,14 @@ include_once 'common.php';
 --Then we want to load the gamegrid with that game.
 --NOTE: I put in the annoying alert..
 --CRAP... I not getting the update I expect
---
+
 --Lets commit this because we've got quite a bit of work
 --SAVE THIS README
 C:\Users\ChrisT\workspace\javascriptmvc305>git add .
 C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 17 - Create Games Controller"
 C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
-[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
 [cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
 [cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
 <<<<<<<<<<<<<<<<<
 >>>>>STEP 17 - TEST
@@ -1353,6 +1353,83 @@ SUCCESS>>some shit works... but my view <the whole purpose> does not
 ?FAILURE>>I FAIL... because I'm not writting enough tests as we go... but sometimes we suck...
 ??WHAT?>>WORK on the darn cross-controller-event-triggering go LOOK THIS UP NEXT...
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 18 - Make grid display with games model data
+<<<<<<<<<<<<<<<<<
+--WOW......... AFTER MANY MANY HOURS of figuring out why shit don't work as expected...
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\controllers\game_controller.js
+'.view click': function( el ){
+        $('.game').removeClass('gameselect');
+      var game = el.closest('.game').model();
+        $.cookie('DoDo', 'Dah');
+        document.cookie = "idGameBrd="+ game['idGameBrd'] +"; path=/";
+        Spools.Models.Token.findAll({}, function(data){
+          $('#token').html(Spools.Controllers.Token.prototype.view('grid', {tokens:data, game:game} ));
+        });
+ },
+ --NOTES:
+ -->>> 1- The $.cookie does work but was putting in the /spools domain path need to add path
+ -->>> 2- I'm planing on using 'gameselect' to highlight the selected game
+ -->>> 3- I'm sure the call and redisplay would work lots of different ways.
+ --I had a hell of a time passing stuff around.  I'm not js fluent for sure.  One big issue I had was 
+ --attemtpting to get model data from the various models passed around.  Then I had an issue with
+ --"" vs '' in the grid.ejs.  I also had an interesting problem with 
+ --REFERENCE BAD CODE:
+'.view click': function( el ){
+        $('.game').removeClass('gameselect');
+      var game = el.closest('.game').model();
+        $.cookie('DoDo', 'Dah');
+        document.cookie = "idGameBrd="+ game['idGameBrd'] +"; path=/";
+        //Spools.Models.Token.findAll({}, updateme(data));
+        
+        Spools.Models.Token.findAll({}, function(data){
+          $('#token').html(Spools.Controllers.Token.prototype.view('grid', {tokens:data} ));
+          //Spools.Controllers.Token.prototype.grid(data);
+        });
+   /* */
+      $(document).ready( function(){
+      $('#gridTeamNameA').html(game['TeamNameA']);
+      $('#gridTeamNameB').html(game['TeamNameB']);
+      });
+ },
+ --THIS was bad because of the async events.  game names were updating then the async was over writing
+ --with the default data. ANYWAY... lots of small issues costing lots of time.
+--EDIT: C:\Users\ChrisT\workspace\javascriptmvc305\spools\views\token\grid.ejs
+<div id="PGSpoolsContainer">
+<table id="PGGridContainer" class="center" border="1" cellspacing='0px'>
+<caption>Game Grid</caption>
+<tr><th colspan=2 rowspan=2><th colspan=5><span id="gridTeamNameA"><%= game["TeamNameA"] %></span>
+<tr><th>x/x<th>x/x<th>x/x<th>x/x<th>x/x
+<tr><th rowspan=5><span id="gridTeamNameB"><%= game["TeamNameB"] %></span>
+<th>x/x
+<%var a = 0; var r = 1; for(var i = 0; i < tokens.length ; i++){ a++; %>
+    <%if( a == 6 ) { a = 1; r++; %> <tr><th>x/x <%}%>
+	<td <%= tokens[i]%> <% if (tokens[i].idOwner == 'game') {%>class="PGToken"<%}%> >
+		<%= $.View('//spools/views/token/icon',tokens[i])%>
+	</td>
+<%}%>
+</table>
+</div>
+--THIS I added the <%= game["TeamNameA"] %> and <%= game["TeamNameB"] %>
+--THIS MESSED ME UP because I used <%= game['TeamNameA'] %> which failed while I was also figuring out
+--all the object passing stuff... man.. need to figure out the handels on the generated code... it's hurting my brain.
+--
+
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "STEP 18 - Make grid display with games model data"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 18 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>Seems to work
+?FAILURE>>LOT of test should be written
+??WHAT?>>
 
 ======================================================================================
 ------- copy buffer --------------
