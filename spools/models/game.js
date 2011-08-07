@@ -71,7 +71,8 @@ $.Model.extend('Spools.Models.Game',
 	 */
 	create: function( attrs, success, error ){
 		$.ajax({
-			url: '/games',
+		//	url: '/games',
+			url: '/games.php',
 			type: 'post',
 			dataType: 'json',
 			success: success,
