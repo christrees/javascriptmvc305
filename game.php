@@ -2,13 +2,12 @@
 include_once 'common.php';
 //--OK we should have a $gamebankout array
 //--Send the games model to the user
-$end = sizeof($gamebankout);
-$i = 1;
+reset($gamebankout);
 echo '[';
-foreach ($gamebankout as $value) {
-    echo json_encode($value);
-    if ( $i < $end) echo ',';
-    $i++;
+while (current($gamebankout)) {
+    echo json_encode(current($gamebankout));
+    if (next($gamebankout)) echo ',';
 }
+//echo json_encode($gamebankout);
 echo ']';
 ?>

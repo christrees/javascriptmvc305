@@ -61,7 +61,7 @@ $.Controller.extend('Spools.Controllers.Token',
 	var $token = el.closest('.token');
 	//$token.removeClass("PGToken");
 	$token.addClass("PGTokenPick");
-	$token.model().update($token.formParams());
+	$token.model($token.formParams()).save();
 },
  /**
  * Creates and places the edit interface.

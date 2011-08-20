@@ -2,24 +2,63 @@
 include_once 'common.php';
 //--OK we should have a $gamebankout array
 //--User just sent us an update
-    if (isset($gamebankout[$idGameBrd_post])) {
-     $gamebankout[$idGameBrd_post]["idGameBrd"] = $idGameBrd_post;
-     $gamebankout[$idGameBrd_post]["message"] = "beenread";
-     $gamebankout[$idGameBrd_post]["TeamNameA"] = $TeamNameA_post;
-     $gamebankout[$idGameBrd_post]["TeamNameB"] = $TeamNameB_post;
-     $gamebankout[$idGameBrd_post]["id"] = $id;
+//-- OK if the user attemps to post a board, we need see if it exist
+function findGameBrd($needle, $haystack) {
+        if (empty($needle) || empty($haystack)) {
+            return false;
+        }
+        foreach ($haystack as $key => $value) {
+            $exists = 0;
+            foreach ($needle as $nkey => $nvalue) {
+                if (!empty($value[$nkey]) && $value[$nkey] == $nvalue) {
+                    $exists = 1;
+                } else {
+                    $exists = 0;
+                }
+            }
+            if ($exists) return $key;
+        }
+        return false;
+}
+//--Figure out the post data
+if (isset($_POST['idGameBrd'])) {
+    /* this is in common
+    $idGameBrd_post = $_POST['idGameBrd'];
+    $TeamNameA_post = $_POST['TeamNameA'];
+    $TeamNameB_post = $_POST['TeamNameB'];
+    $message_post   = $_POST['message'];
+     * 
+     */
+    $needle = array("idGameBrd" => $idGameBrd_post);
+    $haystack = $gamebankout;
+    $key = findGameBrd($needle, $haystack);
+    if ($key) {
+     $gamebankout[$key]["idGameBrd"] = $idGameBrd_post;
+     $gamebankout[$key]["message"]   = $message_post;
+     $gamebankout[$key]["TeamNameA"] = $TeamNameA_post;
+     $gamebankout[$key]["TeamNameB"] = $TeamNameB_post;
+     $out = $gamebankout[$key];
     } else {
-     $gamebankout[$idGameBrd_post] = $theGame["gamesbankinit"];
-     $gamebankout[$idGameBrd_post]["idGameBrd"] = $idGameBrd_post;
-     $gamebankout[$idGameBrd_post]["message"] = "brannew";
-     $gamebankout[$idGameBrd_post]["TeamNameA"] = $TeamNameA_post;
-     $gamebankout[$idGameBrd_post]["TeamNameB"] = $TeamNameB_post;
-     $gamebankout[$idGameBrd_post]["id"] = $idGameBrd_post;
+     $newGame = $theGame["gamesbankinit"];
+     $newGame["idGameBrd"] = $idGameBrd_post;
+     $newGame["message"]   = $message_post;
+     $newGame["TeamNameA"] = $TeamNameA_post;
+     $newGame["TeamNameB"] = $TeamNameB_post;
+     $newGame["id"] = count($gamebankout) + 1;
+     var_dump($newGame);
+     array_push($gamebankout, $newGame);
+     end($gamebankout);
+     $out = current($gamebankout);
     }
     //-- Store the new games list
     $fp = fopen($gamesbankbasename, 'w+') or die("I could not open $gamesbankbasename.");
     fwrite($fp, serialize($gamebankout));
-    fclose($fp);
-    //--Give the updated data back
-    echo json_encode($gamebankout[$idGameBrd_post]);
+    fclose($fp); 
+} else {
+    $out = end($gamebankout);
+}
+
+echo '[';
+echo json_encode($out);
+echo ']';
 ?>

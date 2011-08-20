@@ -2,7 +2,7 @@
 include_once 'common.php';
 //--OK we should have a $gamebrdout array
 //--User just clicked on a token and sent us an update.. lets assign it to him
-    if ($gamebrdout[$idGamePos]["idOwner"] == $gamedefaulttokenowner) {
+    if ($gamebrdout[$idGamePos]["idOwner"] == $theGame["tokendefault"]["idOwner"]) {
      $gamebrdout[$idGamePos]["idOwner"] = $idPlayer;
     }
         //-- Store the new board

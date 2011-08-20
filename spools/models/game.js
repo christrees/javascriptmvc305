@@ -43,7 +43,7 @@ $.Model.extend('Spools.Models.Game',
 			dataType: 'json',
 			data: attrs,
 			success: success,
-			error: error,
+			error: error ,
 			fixture: "-restUpdate" //uses $.fixture.restUpdate for response.
 		});
 	},

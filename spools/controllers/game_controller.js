@@ -78,7 +78,7 @@ $.Controller.extend('Spools.Controllers.Game',
  */
 '.update click': function( el ){
 	var $game = el.closest('.game'); 
-	$game.model().update($game.formParams());
+	$game.model($game.formParams()).save();
 },
  /**
  * Listens for updated games.	 When a game is updated, 

@@ -4,6 +4,7 @@
 session_start();
 //-EXPIRE COOKIE- set time in past so browser deletes.
 setcookie ("idPlayer", "", time() - 3600);
+setcookie ("idGameBrd", "", time() - 3600);
 setcookie ("spoolsgameboard1", "", time() - 3600);
 
 // Unset all of the session variables.

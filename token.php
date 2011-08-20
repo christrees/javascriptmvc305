@@ -3,16 +3,16 @@ include_once 'common.php';
 
 //--OK we should have a $gamebrdout array
 //--We need to set the user display field so this user can click and buy tokens from the board default
-for ($i = 1; $i <= $gameTokenTotal; $i++) {
-    if ($gamebrdout[$i]["idOwner"] == $gamedefaulttokenowner) {
-     $gamebrdout[$i]["idPlayer"] = $idPlayer;
+for ($i = 1; $i <= $theGame["gamegridinit"]["gametotaltokens"]; $i++) {
+    if ($gamebrdout[$i]["idOwner"] == $theGame["gamegridinit"]["gametotaltokens"]) {
+        $gamebrdout[$i]["idPlayer"] = $idPlayer;
     }
 }
 //--Send the game to the user
 echo '[';
-for ($i = 1; $i <= $gameTokenTotal; $i++) {
+for ($i = 1; $i <= $theGame["gamegridinit"]["gametotaltokens"]; $i++) {
     echo json_encode($gamebrdout[$i]);
-     if ( $i < $gameTokenTotal ) {echo ',';} //-- comma between all but last
+     if ( $i < $theGame["gamegridinit"]["gametotaltokens"] ) {echo ',';} //-- comma between all but last
 }
 echo ']';
 
