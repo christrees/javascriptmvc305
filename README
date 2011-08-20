@@ -1431,6 +1431,27 @@ SUCCESS>>Seems to work
 ?FAILURE>>LOT of test should be written
 ??WHAT?>>
 
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 19 - Cleanup to sync with Joe Candy
+<<<<<<<<<<<<<<<<<
+--Joe has some new ui candy to share, so I want to sync up with website and my current stuff
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>rm *.spools
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "enable old css and web sync"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm *.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+<<<<<<<<<<<<<<<<<
+>>>>>STEP x - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>
+?FAILURE>>
+??WHAT?>>
+
 ======================================================================================
 ------- copy buffer --------------
 ?????????????????????????????????
