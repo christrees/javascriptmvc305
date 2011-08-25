@@ -34,16 +34,22 @@ if (isset($_POST['idGameBrd'])) {
     $key = findGameBrd($needle, $haystack);
     if ($key) {
      $gamebankout[$key]["idGameBrd"] = $idGameBrd_post;
-     $gamebankout[$key]["message"]   = $message_post;
      $gamebankout[$key]["TeamNameA"] = $TeamNameA_post;
      $gamebankout[$key]["TeamNameB"] = $TeamNameB_post;
+     $gamebankout[$key]["TypeSport"] = $TypeSport_post;
+     $gamebankout[$key]["TeamAScore"] = $TeamAScore_post;
+     $gamebankout[$key]["TeamBScore"] = $TeamBScore_post;
+     $gamebankout[$key]["message"]   = $message_post;
      $out = $gamebankout[$key];
     } else {
      $newGame = $theGame["gamesbankinit"];
      $newGame["idGameBrd"] = $idGameBrd_post;
-     $newGame["message"]   = $message_post;
      $newGame["TeamNameA"] = $TeamNameA_post;
      $newGame["TeamNameB"] = $TeamNameB_post;
+     $newGame["TypeSport"] = $TypeSport_post;
+     $newGame["TeamAScore"] = $TeamAScore_post;
+     $newGame["TeamBScore"] = $TeamBScore_post;
+     $newGame["message"]   = $message_post;
      $newGame["id"] = count($gamebankout) + 1;
      var_dump($newGame);
      array_push($gamebankout, $newGame);
@@ -58,7 +64,7 @@ if (isset($_POST['idGameBrd'])) {
     $out = end($gamebankout);
 }
 
-echo '[';
+// echo '[';
 echo json_encode($out);
-echo ']';
+// echo ']';
 ?>

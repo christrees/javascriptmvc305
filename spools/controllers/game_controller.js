@@ -51,11 +51,11 @@ $.Controller.extend('Spools.Controllers.Game',
  */
  '.view click': function( el ){
         $('.game').removeClass('gameselect');
-        var game = el.closest('.game').model();
+        var curgame = el.closest('.game').model();
         $.cookie('DoDo', 'Dah');
-        document.cookie = "idGameBrd="+ game['idGameBrd'] +"; path=/";
+        document.cookie = "idGameBrd="+ curgame['idGameBrd'] +"; path=/";
         Spools.Models.Token.findAll({}, function(data){
-          $('#token').html(Spools.Controllers.Token.prototype.view('grid', {tokens:data, game:game} ));
+          $('#token').html(Spools.Controllers.Token.prototype.view('grid', {tokens:data, game:curgame} ));
         });
  },
  /**

@@ -20,9 +20,12 @@ if (isset($_POST['idPlayer'])) { //-- post should have id
 if (isset($_POST['idGameBrd'])) { //-- post should have board for game
         //-- if your using games you should be passing me this stuff on POST
 	$idGameBrd_post  = (isset($_POST['idGameBrd']))  ? ($_POST['idGameBrd'] )  : ('GameBrdFd');
-	$message_post   = (isset($_POST['message']))    ? ($_POST['message']  )   : ('messagefuckd');
 	$TeamNameA_post  = (isset($_POST['TeamNameA']))  ? ($_POST['TeamNameA']  ) : ('TeamNameAfuckd');
 	$TeamNameB_post  = (isset($_POST['TeamNameB']))  ? ($_POST['TeamNameB']  ) : ('TeamNameBfuckd');
+	$TypeSport_post  = (isset($_POST['TypeSport']))  ? ($_POST['TypeSport']  ) : ('TypeSportfuckd');
+	$TeamAScore_post  = (isset($_POST['TeamAScore']))  ? ($_POST['TeamAScore']  ) : ('TeamAScorefuckd');
+	$TeamBScore_post  = (isset($_POST['TeamBScore']))  ? ($_POST['TeamBScore']  ) : ('TeamBScorefuckd');
+	$message_post   = (isset($_POST['message']))    ? ($_POST['message']  )   : ('messagefuckd');
 }
 //-- Get setup and then the right board for the user
 $theGame = parse_ini_file("gameboard.ini", true);

@@ -1,0 +1,467 @@
+{
+	margin: 0;
+	padding: 0;
+}
+
+/* Overall container */
+
+#gameContainer {
+	position:absolute;
+	width:320px;
+	height:480px;
+	z-index:1;
+	overflow:hidden;
+	border: 0px;
+	top: 0px;
+}
+.tabs {
+	position:relative;
+	width:106px;
+	height:30px;
+	top:6px;
+	z-index:1;
+	float:left;
+	background-image:url(/spools/v04/image/pp_tab.png);
+	background-position:top;
+	background-repeat:no-repeat;
+}
+.untabs {
+	position:relative;
+	width:106px;
+	height:30px;
+	top:6px;
+	z-index:1;
+	float:left;
+	background-image:url(/spools/v04/image/pp_nontab.png);
+	background-position:top;
+	background-repeat:no-repeat;
+}
+.tabstitles {
+	position:relative;
+	width:100%;
+	height:16px;
+	top:5px;
+	z-index:1;
+	float:left;
+	color:white;
+	font-size:14px;
+	font-family: "Myriad Pro", Helvetica, sans-serif;
+	text-align:center;
+}
+#gameBG {
+	position:absolute;
+	width:319px;
+	height:438px;
+	top:36px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	background-image:url(/spools/v04/image/pp_app_bg.png);
+	background-position:top;
+	background-repeat:no-repeat;
+}
+.infoSection {
+	position:relative;
+	width:319px;
+	height:89px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top: 10px;
+	background-image:url(/spools/v04/image/pp_row_bg.png);
+	background-repeat:no-repeat;
+}
+.scoreSection {
+	position:relative;
+	width:319px;
+	height:40px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top: 10px;
+	background-image:url(/spools/v04/image/pp_skinny_row.png);
+	background-repeat:no-repeat;
+}
+.startNewGame {
+	position:relative;
+	width:319px;
+	height:40px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top: 10px;
+	background-image:url(/spools/v04/image/pp_skinny_row_green.png);
+	background-repeat:no-repeat;
+}
+.header {
+	position:relative;
+	width:319px;
+	height:25px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top: 3px;
+	color:white;
+	font-size:24px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	text-shadow: rgba(0,0,0,1) 2px 2px 3px;
+}
+.createdBy {
+	position:relative;
+	width:319px;
+	height:25px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top: 25px;
+	color:white;
+	font-size:18px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+}
+A:link {text-decoration: none}
+A:visited {text-decoration: none}
+A:active {text-decoration: none}
+A:hover {text-decoration:none}
+
+
+/* Officials Panel */
+
+
+.addplayer {
+	position:absolute;
+	width:110px;
+	height:75px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top:340px;
+	left: 5px;
+	background-image:url(/spools/v04/image/pp_big_button.png);
+}
+.removeplayer {
+	position:absolute;
+	width:110px;
+	height:75px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top:340px;
+	left: 122px;
+	background-image:url(/spools/v04/image/pp_big_button.png);
+}
+.startgame {
+	position:absolute;
+	width:110px;
+	height:75px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top:388px;
+	left: 108px;
+	background-image:url(/spools/v04/image/pp_big_button.png);
+}
+.endgame {
+	position:absolute;
+	width:75px;
+	height:75px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	top:340px;
+	left: 239px;
+	background-image:url(/spools/v04/image/pp_red_button.png);
+}
+#minusbutton {
+	position:absolute;
+	width:60px;
+	height:60px;
+	z-index:2;
+	left: 13px;
+	top: 13px;
+	background-image:url(/spools/v04/image/pp_minus_button.png);
+}
+#plusbutton {
+	position:absolute;
+	width:60px;
+	height:60px;
+	z-index:2;
+	left: 247px;
+	top: 13px;
+	background-image:url(/spools/v04/image/pp_plus_button.png);
+}
+#heading {
+	position:absolute;
+	width:166px;
+	height:26px;
+	z-index:2;
+	left: 77px;
+	top: 13px;
+	color:white;
+	font-size:24px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	text-shadow: rgba(0,0,0,1) 2px 2px 3px;
+}
+#startNew {
+	position:absolute;
+	width:250px;
+	height:26px;
+	z-index:2;
+	left: 34px;
+	top: 2px;
+	color:white;
+	font-size:24px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	text-shadow: rgba(0,0,0,1) 2px 2px 3px;
+}
+#value {
+	position:absolute;
+	width:166px;
+	height:26px;
+	z-index:2;
+	left: 77px;
+	top: 47px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#buttonTitle {
+	position:absolute;
+	width:90px;
+	height:60px;
+	z-index:2;
+	top:4px;
+	left:5px;
+	color:white;
+	font-size:24px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	text-shadow: rgba(0,0,0,1) 2px 2px 3px;
+}
+#squarebuttonTitle {
+	position:absolute;
+	width:55px;
+	height:60px;
+	z-index:2;
+	top:4px;
+	left:5px;
+	color:white;
+	font-size:24px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	text-shadow: rgba(0,0,0,1) 2px 2px 3px;
+}
+
+/* Scoreboard */
+
+
+#name {
+	position:absolute;
+	width:200px;
+	height:26px;
+	top: 4px;
+	left: 5px;
+	z-index:1;
+	color:white;
+	font-size:20px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#score {
+	position:absolute;
+	width:100px;
+	height:26px;
+	top: 4px;
+	left: 211px;
+	z-index:1;
+	color:white;
+	font-size:20px;
+	text-align:right;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+
+/* Game Section */
+
+
+.boardSection {
+	position:absolute;
+	width:329px;
+	height:332px;
+	top:90px;
+	z-index:1;
+	border: 0px;
+	left: -10px;
+	background-image:url(/spools/v04/image/games_spools_bg.png);
+	background-repeat:no-repeat;
+}
+#PGPicksInstruction {
+	position:relative;
+	width:100%;
+	height:16px;
+	z-index:4;
+	text-align:center;
+	top:10px;
+	color:white;
+	font-size:14px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#PGPicksSelectionContainer {
+	position:relative;
+	width:100%;
+	height:40px;
+	z-index:4;
+	text-align:center;
+	top:10px;
+}
+#PGHomeTeam {
+	position:absolute;
+	width:140px;
+	height:25px;
+	z-index:4;
+	left: 1px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	top: 3px;
+}
+#PGHomeTeamScore {
+	position:absolute;
+	width:140px;
+	height:25px;
+	z-index:4;
+	left: 1px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 28px;
+}
+#PGAwayTeam {
+	position:absolute;
+	width:140px;
+	height:25px;
+	z-index:4;
+	left: 177px;
+	top: 3px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+}
+#PGAwayTeamScore {
+	position:absolute;
+	width:140px;
+	height:25px;
+	z-index:4;
+	left: 177px;
+	top: 28px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#PGVS {
+	position:absolute;
+	width:34px;
+	height:18px;
+	z-index:4;
+	left: 142px;
+	top: 17px;
+	color:white;
+	font-size:14px;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#PGGridContainer {
+	position:absolute;
+	width:235px;
+	height:235px;
+	z-index:2;
+	left: 79px;
+	top: 81px;
+}
+#PGGrid {
+	position:relative;
+	width:47px;
+	height:47px;
+	z-index:2;
+	float:left;
+}
+
+
+
+#PGSpoolsNumbersHorizContainer {
+	position:absolute;
+	width:235px;
+	height:16px;
+	z-index:2;
+	left: 79px;
+	top: 60px;
+}
+#PGSpoolsNumbersHoriz {
+	position:relative;
+	width:47px;
+	height:100%;
+	z-index:2;
+	float:left;
+	color:white;
+	font-size:14px;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#PGSpoolsNumbersVerticalContainer {
+	position:absolute;
+	width:27px;
+	height:240px;
+	z-index:2;
+	left: 49px;
+	top: 80px;
+}
+#PGSpoolsNumbersVertical {
+	position:relative;
+	width:100%;
+	height:20%;
+	line-height:48px;
+	z-index:2;
+	float:left;
+	color:white;
+	font-size:14px;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#PGSpoolsHomeTeam {
+	position:absolute;
+	width:235px;
+	height:25px;
+	z-index:4;
+	left: 79px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	top: 30px;
+	text-shadow: rgba(0,0,0,1) 2px 2px 3px;
+}
+#PGSpoolsAwayTeam {
+	position:absolute;
+	width:235px;
+	height:25px;
+	z-index:4;
+	left: -86px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family:Hauser, Arial, Helvetica, sans-serif;
+	top: 187px;
+	text-shadow: rgba(0,0,0,1) 2px 2px 3px;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}

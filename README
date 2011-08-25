@@ -1445,6 +1445,122 @@ C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
 [cat@gator1209 ~/public_html/javascriptmvc305]$ rm *.spools
 [cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
 <<<<<<<<<<<<<<<<<
+>>>>>STEP 19 - TEST
+<<<<<<<<<<<<<<<<<
+Browse - http://js.javascriptmvc305/spools/spools.html
+SUCCESS>>works
+
+<<<<<<<<<<<<<<<<<
+>>>>>STEP 20 - Joe Candy Merge
+<<<<<<<<<<<<<<<<<
+--OK Joe's new candy
+--http://www.gimbalrock.com/spools/v04/
+--Lets merge this via the divs...
+--First lets just update the css
+--Joe is using partyplay.css copy just that...
+--http://www.gimbalrock.com/spools/v04/game.html
+--HAS <div class="boardSection">
+--Find a better way to deal with css
+--http://www.cssreflex.com/2010/05/10-best-css-editors.html/
+--http://www.skybound.ca/stylizer/videos/#automation
+--Placement Mode on Automation Video 1:24
+
+++++++++++++++ TEMP CLIPBOARD SAVE ++++++++++++++++++++++
+#PGSpoolsContainer {
+	/* This container starts the play grid display */
+	/*position:absolute;*/
+	position:relative;/* being stacking context */
+	width:337px;
+	height:339px;
+	z-index:4;
+	/*
+	left: 11px;
+	top: 101px;
+	*/
+	background-image:url(resources/games_spools_bg.png);
+	background-repeat:no-repeat;
+}
+
+#PGGridContainer {
+	/* This container is just the token grid */
+	position:absolute;
+	width:285px;
+	height:285px;
+	z-index:2;
+	/*float:right;*/
+	bottom: 20px;
+	right:23px;
+	/*
+	left: 79px;
+	top: 81px;
+	*/
+	
+}
+.PGGrid {
+	/* css class for an grid space */
+	position:relative;
+	/*
+	width:50px;
+	height:50px;
+	*/
+	z-index:2;
+	margin:5px;
+	/*float:left;*/
+        color: green;
+}
+.PGToken {
+	/* this is the PlayGameToken */
+    	background-image:url(resources/CoinIcon.png);
+	background-repeat:no-repeat;
+	-webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+<div id="CATCRAP">
+<div id="gameContainer">
+<div id="gameBG">
+<div class="boardSection">
+<table id="PGGridContainer" class="center" border="1" cellspacing='0px'>
+<caption>Game Grid</caption>
+<tr><th colspan=2 rowspan=2><th colspan=5><span id="gridTeamNameA"><%= game["TeamNameA"] %></span>
+<tr><th class="PGSpoolsScoreGrid">x/x<th class="PGSpoolsScoreGrid">x/x<th class="PGSpoolsScoreGrid">x/x<th class="PGSpoolsScoreGrid">x/x<th class="PGSpoolsScoreGrid">x/x
+<tr><th rowspan=5><span id="gridTeamNameB"><%= game["TeamNameB"] %></span>
+<th>x/x
+<%var a = 0; var r = 1; for(var i = 0; i < tokens.length ; i++){ a++; %>
+    <%if( a == 6 ) { a = 1; r++; %> <tr class="PGSpoolsScoreGrid"><th>x/x <%}%>
+	<td <%= tokens[i]%> class="PGGrid" <% if (tokens[i].idOwner == 'game') {%> class="theCrap" <%}%> >
+		<%= $.View('//spools/views/token/icon',tokens[i])%>
+	</td>
+<%}%>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+--http://www.gimbalrock.com/spools/v04/officialspanel.html
+--http://www.gimbalrock.com/spools/v04/newgame.html
+--http://www.gimbalrock.com/spools/v04/officialspanel.html
+
+--OK... ran into an issue with the update, it does not pick up the edit text input and pass to the server.
+--I traced this through and couldn't figure it out... so I'm going to start from ground zero in a complete rebuild.
+--I figure I'll start from the new version of javascriptMVC also...
+--Now figure out what the hell to call it..
+--OK... I'm going to pull down the 3.1.0 zip and recreate from that.
+--I'll call it javascriptmvc310
+--SO go follow the README http://github.com/christrees/javascriptmvc310
+
+--Lets commit this
+--SAVE THIS README
+C:\Users\ChrisT\workspace\javascriptmvc305>git add .
+C:\Users\ChrisT\workspace\javascriptmvc305>git commit -m "Update Error swithcing to javascriptmvc310 and rebuilding"
+C:\Users\ChrisT\workspace\javascriptmvc305>git push origin spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git fetch
+[cat@gator1209 ~/public_html/javascriptmvc305]$ rm gamebrdbank.spools
+[cat@gator1209 ~/public_html/javascriptmvc305]$ git checkout remotes/origin/spools
+<<<<<<<<<<<<<<<<<
 >>>>>STEP x - TEST
 <<<<<<<<<<<<<<<<<
 Browse - http://js.javascriptmvc305/spools/spools.html

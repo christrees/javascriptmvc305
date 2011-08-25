@@ -1,89 +1,101 @@
-/*
-body {font-family: verdana}
-td {padding: 3px;}
-*/
-td { color: white;}
-#PGSpoolsContainer {
-	/* This container starts the play grid display */
-	/*position:absolute;*/
-	position:relative;/* being stacking context */
-	width:337px;
-	height:339px;
-	z-index:4;
-	/*
-	left: 11px;
-	top: 101px;
-	*/
-	background-image:url(resources/games_spools_bg.png);
-	background-repeat:no-repeat;
+/*+init {*/
+*
+{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
 }
-#PGGridContainer {
-	/* This container is just the token grid */
-	position:absolute;
-	width:285px;
-	height:285px;
-	z-index:2;
-	/*float:right;*/
-	bottom: 20px;
-	right:23px;
-	/*
-	left: 79px;
-	top: 81px;
-	*/
-	
+H1, H2, H3, H4, H5, H6, TH
+{
+	font-weight: inherit;
+	=font-weight: expression(this.__FW?this.__FW:(new Function('t','return (t.__FW=t.parentNode.currentStyle.fontWeight)'))(this));
 }
-.PGGrid {
-	/* css class for an grid space */
-	position:relative;
-	/*
-	width:50px;
-	height:50px;
-	*/
-	z-index:2;
-	margin:5px;
-	/*float:left;*/
-        color: green;
+ADDRESS, CITE, DFN, VAR
+{
+	font-style: inherit;
+	=font-style: expression(this.__FS?this.__FS:(new Function('t','return (t.__FS=t.parentNode.currentStyle.fontStyle)'))(this));
 }
-.PGToken {
-	/* this is the PlayGameToken */
-    	background-image:url(resources/CoinIcon.png);
-	background-repeat:no-repeat;
-	-webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+CAPTION, CODE, KBD, PRE, SAMP, TT, INPUT, TEXTAREA, SELECT, BUTTON
+{
+	font-family: inherit;
+	=font-family: expression(this.__FF?this.__FF:(new Function('t','return (t.__FF=t.parentNode.currentStyle.fontFamily)'))(this));
 }
-.PGTokenPick {
-  -webkit-animation-name: pulse;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-direction: alternate;
+TABLE
+{
+	border-spacing: 0;
 }
-@-webkit-keyframes pulse {
- from {
-   opacity: 1.0;
-   color: red;
-    background-size: cover;
- }
- to {
-   opacity: 0.3;
-   color: red;
-    background-size: 50%;
- }
+TH
+{
+	text-align: left;
 }
-.center {margin-left:auto; margin-right:auto;}
-.token {
-	/* this is the javascriptmvc model class tag */
-	position:relative;
-	/*Fit for Joes grid*/
-	width:45px;
-	height:46px;
-	/*Fit for Shaynes token icon 
-	width:60px;
-	height:60px;
-	*/
-	z-index:2;
+HTML, BODY, THEAD, TBODY, TFOOT, TR, TH, TD, BR
+{
+	position: static;
+}
+INPUT[type=hidden]
+{
+	display: none !important;
+}
+FIELDSET, A IMG
+{
+	border: 0;
+}
+BODY
+{
+	font-size: 100%;
+	font-family: sans-serif;
+	line-height: 1.5;
+}
+/*+}*/
+/*spools.css Chris Trees 20110822 merge Joe*/
+.boardSection
+{
+	background-image: url(resources/games_spools_bg.png);
+	background-repeat: no-repeat;
+	border: 6px solid #000000;
+	width: 334px;
+	height: 334px;
+}
+#PGSpoolsTable
+{
+	/*+placement:anchor-bottom-right 0px 0px;*/
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	margin: 17px 19px 15px 9px;
 	text-align: center;
-        color: green;
+}
+.PGSpoolsScoreVert
+{
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	max-height: 10px;
+	max-width: 20px;
+	text-align: center;
+}
+.PGSpoolsScoreHoriz
+{
+	text-align: center;
+}
+.PGGrid
+{
+	min-height: 46px;
+	min-width: 45px;
+	width: 45px;
+	height: 46px;
+	text-align: center;
+}
+.PGSpoolsTableTeamLeft
+{
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	width: 0px;
+	height: 0px;
+	max-height: 10px;
+	max-width: 30px;
+}
+.PGSpoolsTableTeamTop
+{
+	text-align: center;
 }

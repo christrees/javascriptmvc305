@@ -1,0 +1,110 @@
+/*
+body {font-family: verdana}
+td {padding: 3px;}
+*/
+td { color: white;}
+/* Overall container */
+#CATCRAP {
+	position:relative;
+        /*
+	width:320px;
+	height:480px;
+	z-index:1;
+	overflow:hidden;
+        */
+	border: 0px;
+	top: 0px;
+}
+/* Officials Panel */
+/* Game Section */
+.boardSection {
+	position:absolute;
+	width:329px;
+	height:332px;
+	top:90px;
+	z-index:1;
+	border: 0px;
+	left: 0px;
+	/* background-image:url(/spools/v04/image/games_spools_bg.png); */
+        /* class tag is used in grid.ejs */
+	background-image:url(resources/games_spools_bg.png);
+	background-repeat:no-repeat;
+}
+#PGSpoolsTable {
+        overflow: hidden;
+ 	position:absolute;
+        vertical-align:bottom;
+        padding-bottom:0;
+        
+	bottom: 13px;
+	right: 13px;
+        /*
+	left: 0px;
+	top: 0px; */
+}
+#PGSpoolTableBlank {
+        overflow: hidden;
+        height:0px;
+        width: 0px;
+
+}
+#PGSpoolTableTeamTop {
+}
+.PGSpoolTableTeamLeft {
+            overflow: hidden;
+        height:10px;
+        width: 10px;
+        -webkit-transform: rotate(-90deg); /* for safari */
+        -moz-transform: rotate(-90deg); /* for mozila */
+}
+.PGGridContainer {
+        /**/
+        /* position:absolute; */
+        overflow: hidden;
+ 	position:relative;
+	width:285px;
+	height:285px;
+	z-index:2;
+        /*float:right;*/
+	bottom: 0px;
+	right:23px;
+	left: 79px;
+	top: 81px;
+        
+}
+.PGGrid {
+        margin-left:auto; margin-right:auto;
+        color: green;
+        text-align: center;
+        height:44px;
+        width: 44px;
+
+    /*
+	position:relative;
+	width:30px !important;
+	height:30px !important;
+	z-index:2;
+	float:left;
+        */
+}
+.PGSpoolsScoreHoriz {
+	/* position:absolute; */
+	width:43px;
+	z-index:2;
+        color: grey;
+}
+.PGSpoolsScoreVert {
+	/* position:absolute; */
+        color: grey;
+        
+	height:44px;
+        width: 10px;
+        /**/
+        -webkit-transform: rotate(-90deg); /* for safari */
+        -moz-transform: rotate(-90deg); /* for mozila */
+	z-index:2;
+}
+
+/* END NEW */
+/* BEGIN OLD */
+
